@@ -12,111 +12,112 @@ import java.util.Random;
  */
 public class Persona {
     
-    private String dni, nombre;
-    private int edad;
-    private char sexo;
-    private double peso, altura;
+    private final String idNumber;
+    private String name;
+    private int age;
+    private char gender;
+    private double weight, height;
     
-    private String generateDNI() {
+    private String generateIdNumber() {
         Random random = new Random();
-        String new_dni = "";
+        String newIdNumber = "";
         
         for (int i = 0; i < 10; i++) {
-            new_dni += random.nextInt(10) + "";
+            newIdNumber += random.nextInt(10) + "";
         }
         
-        return new_dni;        
+        return newIdNumber;        
     }
     
     public Persona() {
-        this.dni = generateDNI();
-        this.nombre = "";
-        this.edad = 0;
-        this.sexo = 'h';
-        this.peso = 0;
-        this.altura = 0;
+        this.idNumber = generateIdNumber();
+        this.name = "";
+        this.age = 0;
+        this.gender = 'h';
+        this.weight = 0;
+        this.height = 0;
     }
     
-    public Persona(String nombre, int edad, char sexo, double peso, double altura) {
-        this.dni = generateDNI();
-        this.nombre = nombre;
-        this.edad = edad;
-        this.sexo = sexo;
-        this.peso = peso;
-        this.altura = altura;
+    public Persona(String name, int age, char gender, double weight, double height) {
+        this.idNumber = generateIdNumber();
+        this.name = name;
+        this.age = age;
+        this.gender = gender;
+        this.weight = weight;
+        this.height = height;
     }
     
     @Override
     public String toString() {
-        return "Nombre: " + nombre +
-               "\nDNI: " + dni +
-               "\nEdad: " + edad +
-               "\nSexo: " + sexo +
-               "\nPeso: " + peso +
-               "\nAltura: " + altura;
+        return "Name: " + name +
+               "\nID Number: " + idNumber +
+               "\nAge: " + age +
+               "\nGender: " + gender +
+               "\nWeight: " + weight +
+               "\nHeight: " + height;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getName() {
+        return name;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getDni() {
-        return dni;
+    public String getIdNumber() {
+        return idNumber;
     }
 
-    public int getEdad() {
-        return edad;
+    public int getAge() {
+        return age;
     }
 
-    public void setEdad(int edad) {
-        this.edad = edad;
+    public void setAge(int age) {
+        this.age = age;
     }
 
-    public char isSexo() {
-        return sexo;
+    public char getGender() {
+        return gender;
     }
 
-    public void setSexo(char sexo) {
-        this.sexo = sexo;
+    public void setGender(char gender) {
+        this.gender = gender;
     }
 
-    public double getPeso() {
-        return peso;
+    public double getWeight() {
+        return weight;
     }
 
-    public void setPeso(double peso) {
-        this.peso = peso;
+    public void setWeight(double weight) {
+        this.weight = weight;
     }
 
-    public double getAltura() {
-        return altura;
+    public double getHeight() {
+        return height;
     }
 
-    public void setAltura(double altura) {
-        this.altura = altura;
+    public void setHeight(double height) {
+        this.height = height;
     }
 
-    public int ICM() {
-        double peso_total = this.peso / (this.altura * this.altura);
+    public int calculateBMI() {
+        double totalWeight = this.weight / (this.height * this.height);
         
-        if (peso_total < 20) {
+        if (totalWeight < 20) {
             return -1;
-        } else if (peso_total <= 25) {
+        } else if (totalWeight <= 25) {
             return 0;
         } else {
             return 1;
         }
     }
     
-    public boolean MayorEdad() {
-        return this.edad >= 18;
+    public boolean isAdult() {
+        return this.age >= 18;
     }
     
-    public boolean comprobarSexo(char Sexo) {
-        return this.sexo == Sexo;
+    public boolean checkGender(char Gender) {
+        return this.gender == Gender;
     }
 }

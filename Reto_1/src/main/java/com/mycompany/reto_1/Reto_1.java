@@ -15,49 +15,50 @@ public class Reto_1 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         
-        String nombre;
-        int edad;
-        char sexo;
-        double peso, altura;
+        String name;
+        int age;
+        char gender;
+        double weight, height;
         
-        System.out.println("Ingrese los siguientes datos:");
+        System.out.println("Ingresa los siguientes datos:");
         System.out.print("Nombre: ");
-        nombre = scanner.nextLine();
+        name = scanner.nextLine();
         System.out.print("Edad: ");
-        edad = scanner.nextInt();
-        // System.out.print("Sexo: ");
-        sexo = 'h';
-        System.out.print("Peso (kilos, gramos): ");
-        peso = scanner.nextDouble();
-        System.out.print("Altura (metros,centimetros): ");
-        altura = scanner.nextDouble();
+        age = scanner.nextInt();
+        // System.out.print("Género: ");
+        gender = 'h';
+        System.out.print("Peso (kilogramos, gramos): ");
+        weight = scanner.nextDouble();
+        System.out.print("Altura (metros, centímetros): ");
+        height = scanner.nextDouble();
         
-        Persona persona_1 = new Persona(nombre, edad, sexo, peso, altura);
-        Persona persona_2 = new Persona(nombre, edad, sexo, 70, 1.65);
-        Persona persona_3 = new Persona();
+        Persona persona1 = new Persona(name, age, gender, weight, height);
+        Persona persona2 = new Persona(name, age, gender, 70, 1.65);
+        Persona persona3 = new Persona();
         
-        persona_3.setNombre("June");
-        persona_3.setEdad(18);
-        persona_3.setSexo('h');
-        persona_3.setPeso(65.61);
-        persona_3.setAltura(1.86);
-        
-        System.out.println("""
-                           %s: Mayor de edad? %s, peso: %s
-                           """.formatted(persona_1.getNombre(), persona_1.MayorEdad() ? "Si" : "No", persona_1.ICM() == -1 ? "bajo" : persona_1.ICM() == 0 ? "ideal" : "alto"));
+        persona3.setName("June");
+        persona3.setAge(18);
+        persona3.setGender('h');
+        persona3.setWeight(65.61);
+        persona3.setHeight(1.86);
         
         System.out.println("""
-                           %s: Mayor de edad? %s, peso: %s
-                           """.formatted(persona_2.getNombre(), persona_2.MayorEdad() ? "Si" : "No", persona_2.ICM() == -1 ? "bajo" : persona_2.ICM() == 0 ? "ideal" : "alto"));
+                           %s: ¿Es adulto? %s, peso: %s
+                           """.formatted(persona1.getName(), persona1.isAdult() ? "Sí" : "No", persona1.calculateBMI() == -1 ? "bajo peso" : persona1.calculateBMI() == 0 ? "saludable" : "sobrepeso"));
         
         System.out.println("""
-                           %s: Mayor de edad? %s, peso: %s
-                           """.formatted(persona_3.getNombre(), persona_3.MayorEdad() ? "Si" : "No", persona_3.ICM() == -1 ? "bajo" : persona_3.ICM() == 0 ? "ideal" : "alto"));
+                           %s: ¿Es adulto? %s, peso: %s
+                           """.formatted(persona2.getName(), persona2.isAdult() ? "Sí" : "No", persona2.calculateBMI() == -1 ? "bajo peso" : persona2.calculateBMI() == 0 ? "saludable" : "sobrepeso"));
         
-        persona_1.toString();
-        persona_2.toString();
-        persona_3.toString();
+        System.out.println("""
+                           %s: ¿Es adulto? %s, peso: %s
+                           """.formatted(persona3.getName(), persona3.isAdult() ? "Sí" : "No", persona3.calculateBMI() == -1 ? "bajo peso" : persona3.calculateBMI() == 0 ? "saludable" : "sobrepeso"));
+        
+        System.out.println(persona1.toString());
+        System.out.println(persona2.toString());
+        System.out.println(persona3.toString());
         
         scanner.close();
     }
 }
+
