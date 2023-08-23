@@ -11,6 +11,6 @@ package com.mycompany.reto_3;
 public class Reto_3 {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        System.out.println("Hola Mundo!");
     }
 }
