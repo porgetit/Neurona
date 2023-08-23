@@ -36,6 +36,7 @@ public class Agenda {
         
         Contacto new_contact = new Contacto(nombre, telefono);
         contacts.add(new_contact);
+        System.out.println("Contacto creado");
     }
     
     public boolean doesContactExist(String nombre) {
