@@ -8,9 +8,6 @@ En este repositorio, encontrarás el código fuente creado por mí durante el tr
 
 El repositorio está organizado de la siguiente manera:
 
-- **Proyecto1/**
-  - Este directorio contiene los archivos relacionados con el primer proyecto asignado en el curso.
-
 - **Ejercicios/**
   - Aquí se encuentran los ejercicios prácticos que he resuelto a lo largo del curso, cada uno en su propio directorio numerado.
 
