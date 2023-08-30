@@ -13,35 +13,23 @@ import java.text.DecimalFormat;
 public class Operador{
     private final DoubleEvaluator evaluator;
     private final DecimalFormat decimalFormat;
-    private String entrada;
     private double resultado;
     
     public Operador(){
-        this.resultado = 0;
         evaluator = new DoubleEvaluator();
         decimalFormat = new DecimalFormat("#.####");
     }
 
     public Operador(String entrada) {
-        this.resultado = 0;
-        this.entrada = entrada;
         evaluator = new DoubleEvaluator();
         decimalFormat = new DecimalFormat("#.####");
-    }
-    
-    public String getEntrada() {
-        return entrada;
-    }
-    
-    public void setEntrada(String entrada) {
-        this.entrada = entrada;
     }
     
     public String getResult() {
         return decimalFormat.format(this.resultado);
     }
     
-    public void operar() {
+    public void operar(String entrada) {
         try {
             this.resultado = evaluator.evaluate(entrada);
         } catch (IllegalArgumentException exception) {

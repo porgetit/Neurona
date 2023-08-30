@@ -4,6 +4,9 @@
 
 package com.mycompany.caculadora;
 
+import java.util.List;
+import java.util.ArrayList;
+
 /**
  *
  * @author athirtro
@@ -11,6 +14,19 @@ package com.mycompany.caculadora;
 public class Caculadora {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        Operador operador = new Operador();
+        List<String> expresiones = new ArrayList<>();
+        
+        expresiones.add("2+3");
+        expresiones.add("2*3");
+        expresiones.add("2-3");
+        expresiones.add("2/3");
+        expresiones.add("1+(2*(3-(4/5)))");
+        expresiones.add("2^2");
+        
+        for (String expresion : expresiones) {
+            operador.operar(expresion);
+            System.out.println(expresion + "=" + operador.getResult());
+        }
     }
 }

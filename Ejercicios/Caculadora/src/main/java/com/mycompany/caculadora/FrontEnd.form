@@ -46,42 +46,39 @@
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace pref="27" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="button11" min="-2" pref="100" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="button12" min="-2" pref="100" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <Component id="button8" min="-2" pref="100" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="button9" min="-2" pref="100" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <Component id="button5" min="-2" pref="100" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="button6" min="-2" pref="100" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <Component id="button3" min="-2" pref="100" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                              <Component id="button4" min="-2" pref="100" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
+                  <Group type="102" attributes="0">
+                      <Component id="button8" min="-2" pref="100" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="button9" min="-2" pref="100" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Component id="button5" min="-2" pref="100" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="button6" min="-2" pref="100" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Component id="button3" min="-2" pref="100" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="button2" min="-2" pref="100" max="-2" attributes="0"/>
-                          <Component id="button7" min="-2" pref="100" max="-2" attributes="0"/>
-                          <Component id="button10" min="-2" pref="100" max="-2" attributes="0"/>
-                          <Component id="button13" min="-2" pref="100" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="button4" min="-2" pref="100" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <Component id="button19" min="-2" pref="100" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
-                      <Component id="button17" min="-2" pref="220" max="-2" attributes="0"/>
+                      <Component id="button11" min="-2" pref="100" max="-2" attributes="0"/>
                   </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="button20" min="-2" pref="100" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="button12" min="-2" pref="100" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                  <Component id="button2" pref="100" max="32767" attributes="0"/>
+                  <Component id="button7" pref="100" max="32767" attributes="0"/>
+                  <Component id="button10" pref="100" max="32767" attributes="0"/>
+                  <Component id="button13" pref="100" max="32767" attributes="0"/>
+                  <Component id="button17" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
@@ -129,13 +126,14 @@
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Component id="button11" min="-2" pref="50" max="-2" attributes="0"/>
-                          <Component id="button12" min="-2" pref="50" max="-2" attributes="0"/>
                           <Component id="button13" min="-2" pref="50" max="-2" attributes="0"/>
+                          <Component id="button19" min="-2" pref="50" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Component id="button17" min="-2" pref="50" max="-2" attributes="0"/>
-                          <Component id="button19" min="-2" pref="50" max="-2" attributes="0"/>
+                          <Component id="button12" min="-2" pref="50" max="-2" attributes="0"/>
+                          <Component id="button20" min="-2" pref="50" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Component id="button18" max="32767" attributes="0"/>
@@ -157,9 +155,7 @@
         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[500, 100]"/>
         </Property>
-        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="operador.getEntrada()" type="code"/>
-        </Property>
+        <Property name="text" type="java.lang.String" value="2+3"/>
       </Properties>
     </Component>
     <Component class="java.awt.Button" name="button2">
@@ -273,17 +269,6 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="button11ActionPerformed"/>
       </Events>
     </Component>
-    <Component class="java.awt.Button" name="button12">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Manjari" size="24" style="1"/>
-        </Property>
-        <Property name="label" type="java.lang.String" value="00"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="button12ActionPerformed"/>
-      </Events>
-    </Component>
     <Component class="java.awt.Button" name="button13">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -360,6 +345,28 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="button19ActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="java.awt.Button" name="button12">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Manjari" size="24" style="1"/>
+        </Property>
+        <Property name="label" type="java.lang.String" value=")"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="button12ActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="java.awt.Button" name="button20">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Manjari" size="24" style="1"/>
+        </Property>
+        <Property name="label" type="java.lang.String" value="("/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="button20ActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>
