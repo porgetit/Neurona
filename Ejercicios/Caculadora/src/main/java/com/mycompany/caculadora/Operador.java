@@ -25,15 +25,12 @@ public class Operador{
         decimalFormat = new DecimalFormat("#.####");
     }
     
-    public String getResult() {
-        return decimalFormat.format(this.resultado);
-    }
-    
-    public void operar(String entrada) {
+    public String operar(String entrada) {
         try {
             this.resultado = evaluator.evaluate(entrada);
+            return decimalFormat.format(this.resultado);
         } catch (IllegalArgumentException exception) {
-            System.out.println("Error al evaluar la expresion: " + exception.getMessage());
+            return "Error de sintaxis";
         }
     }
 }
