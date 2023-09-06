@@ -16,6 +16,8 @@ import java.util.regex.Matcher;
 public class MainView extends javax.swing.JFrame {    
     List<javax.swing.JButton> TrigoFunctionButtons = new ArrayList<>();
     Pattern hyperbolicFunctionPattern;
+    Pattern inverseFunctionPattern;
+    Controller operator = new Controller();
 
     /**
      * Creates new form MainView
@@ -28,8 +30,10 @@ public class MainView extends javax.swing.JFrame {
         TrigoFunctionButtons.add(ButtonSec);
         TrigoFunctionButtons.add(ButtonCsc);
         TrigoFunctionButtons.add(ButtonCot);
-        hyperbolicFunctionPattern = Pattern.compile("([sencota]{3}|[sencota]{6})h{1}\\(x\\)");
-        
+        hyperbolicFunctionPattern = Pattern.compile("(sen|cos|tan|sec|csc|cot|arcsen|arccos|arctan|arcsec|arccsc|arccot)(h?\\(x\\))");
+        inverseFunctionPattern = Pattern.compile("(arc)?(sen|cos|tan|sec|csc|cot)(h?\\(x\\))");
+        DisplayExpression.setText("");
+        DisplayResult.setText("");
     }
 
     /**
@@ -289,6 +293,11 @@ public class MainView extends javax.swing.JFrame {
         ButtonDelete.setMaximumSize(new java.awt.Dimension(50, 20));
         ButtonDelete.setMinimumSize(new java.awt.Dimension(50, 20));
         ButtonDelete.setPreferredSize(new java.awt.Dimension(55, 30));
+        ButtonDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonDeleteActionPerformed(evt);
+            }
+        });
 
         jButton16.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         jButton16.setText("x^2");
@@ -359,6 +368,11 @@ public class MainView extends javax.swing.JFrame {
         ButtonToOpenParenthesis.setMaximumSize(new java.awt.Dimension(50, 20));
         ButtonToOpenParenthesis.setMinimumSize(new java.awt.Dimension(50, 20));
         ButtonToOpenParenthesis.setPreferredSize(new java.awt.Dimension(55, 30));
+        ButtonToOpenParenthesis.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonToOpenParenthesisActionPerformed(evt);
+            }
+        });
 
         ButtonToCloseParenthesis.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         ButtonToCloseParenthesis.setText(")");
@@ -369,6 +383,11 @@ public class MainView extends javax.swing.JFrame {
         ButtonToCloseParenthesis.setMaximumSize(new java.awt.Dimension(50, 20));
         ButtonToCloseParenthesis.setMinimumSize(new java.awt.Dimension(50, 20));
         ButtonToCloseParenthesis.setPreferredSize(new java.awt.Dimension(55, 30));
+        ButtonToCloseParenthesis.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonToCloseParenthesisActionPerformed(evt);
+            }
+        });
 
         ButtonFactorial.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         ButtonFactorial.setText("n!");
@@ -409,6 +428,11 @@ public class MainView extends javax.swing.JFrame {
         ButtonNumber7.setMaximumSize(new java.awt.Dimension(50, 20));
         ButtonNumber7.setMinimumSize(new java.awt.Dimension(50, 20));
         ButtonNumber7.setPreferredSize(new java.awt.Dimension(55, 30));
+        ButtonNumber7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonNumber7ActionPerformed(evt);
+            }
+        });
 
         ButtonNumber8.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         ButtonNumber8.setText("8");
@@ -419,6 +443,11 @@ public class MainView extends javax.swing.JFrame {
         ButtonNumber8.setMaximumSize(new java.awt.Dimension(50, 20));
         ButtonNumber8.setMinimumSize(new java.awt.Dimension(50, 20));
         ButtonNumber8.setPreferredSize(new java.awt.Dimension(55, 30));
+        ButtonNumber8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonNumber8ActionPerformed(evt);
+            }
+        });
 
         ButtonNumber9.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         ButtonNumber9.setText("9");
@@ -429,6 +458,11 @@ public class MainView extends javax.swing.JFrame {
         ButtonNumber9.setMaximumSize(new java.awt.Dimension(50, 20));
         ButtonNumber9.setMinimumSize(new java.awt.Dimension(50, 20));
         ButtonNumber9.setPreferredSize(new java.awt.Dimension(55, 30));
+        ButtonNumber9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonNumber9ActionPerformed(evt);
+            }
+        });
 
         ButtonProduct.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         ButtonProduct.setText("*");
@@ -459,6 +493,11 @@ public class MainView extends javax.swing.JFrame {
         ButtonNumber4.setMaximumSize(new java.awt.Dimension(50, 20));
         ButtonNumber4.setMinimumSize(new java.awt.Dimension(50, 20));
         ButtonNumber4.setPreferredSize(new java.awt.Dimension(55, 30));
+        ButtonNumber4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonNumber4ActionPerformed(evt);
+            }
+        });
 
         ButtonNumber5.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         ButtonNumber5.setText("5");
@@ -469,6 +508,11 @@ public class MainView extends javax.swing.JFrame {
         ButtonNumber5.setMaximumSize(new java.awt.Dimension(50, 20));
         ButtonNumber5.setMinimumSize(new java.awt.Dimension(50, 20));
         ButtonNumber5.setPreferredSize(new java.awt.Dimension(55, 30));
+        ButtonNumber5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonNumber5ActionPerformed(evt);
+            }
+        });
 
         ButtonNumber6.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         ButtonNumber6.setText("6");
@@ -479,6 +523,11 @@ public class MainView extends javax.swing.JFrame {
         ButtonNumber6.setMaximumSize(new java.awt.Dimension(50, 20));
         ButtonNumber6.setMinimumSize(new java.awt.Dimension(50, 20));
         ButtonNumber6.setPreferredSize(new java.awt.Dimension(55, 30));
+        ButtonNumber6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonNumber6ActionPerformed(evt);
+            }
+        });
 
         ButtonDifference.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         ButtonDifference.setText("-");
@@ -509,6 +558,11 @@ public class MainView extends javax.swing.JFrame {
         ButtonNumber1.setMaximumSize(new java.awt.Dimension(50, 20));
         ButtonNumber1.setMinimumSize(new java.awt.Dimension(50, 20));
         ButtonNumber1.setPreferredSize(new java.awt.Dimension(55, 30));
+        ButtonNumber1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonNumber1ActionPerformed(evt);
+            }
+        });
 
         ButtonNumber2.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         ButtonNumber2.setText("2");
@@ -519,6 +573,11 @@ public class MainView extends javax.swing.JFrame {
         ButtonNumber2.setMaximumSize(new java.awt.Dimension(50, 20));
         ButtonNumber2.setMinimumSize(new java.awt.Dimension(50, 20));
         ButtonNumber2.setPreferredSize(new java.awt.Dimension(55, 30));
+        ButtonNumber2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonNumber2ActionPerformed(evt);
+            }
+        });
 
         ButtonNumber3.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         ButtonNumber3.setText("3");
@@ -529,6 +588,11 @@ public class MainView extends javax.swing.JFrame {
         ButtonNumber3.setMaximumSize(new java.awt.Dimension(50, 20));
         ButtonNumber3.setMinimumSize(new java.awt.Dimension(50, 20));
         ButtonNumber3.setPreferredSize(new java.awt.Dimension(55, 30));
+        ButtonNumber3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonNumber3ActionPerformed(evt);
+            }
+        });
 
         ButtonSum.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         ButtonSum.setText("+");
@@ -569,6 +633,11 @@ public class MainView extends javax.swing.JFrame {
         ButtonNumber0.setMaximumSize(new java.awt.Dimension(50, 20));
         ButtonNumber0.setMinimumSize(new java.awt.Dimension(50, 20));
         ButtonNumber0.setPreferredSize(new java.awt.Dimension(55, 30));
+        ButtonNumber0.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonNumber0ActionPerformed(evt);
+            }
+        });
 
         ButtonComma.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         ButtonComma.setText(",");
@@ -579,6 +648,11 @@ public class MainView extends javax.swing.JFrame {
         ButtonComma.setMaximumSize(new java.awt.Dimension(50, 20));
         ButtonComma.setMinimumSize(new java.awt.Dimension(50, 20));
         ButtonComma.setPreferredSize(new java.awt.Dimension(55, 30));
+        ButtonComma.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonCommaActionPerformed(evt);
+            }
+        });
 
         ButtonEqual.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         ButtonEqual.setText("=");
@@ -802,33 +876,93 @@ public class MainView extends javax.swing.JFrame {
     }//GEN-LAST:event_DisplayExpressionActionPerformed
 
     private void ButtonClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonClearActionPerformed
-        // TODO add your handling code here:
+        DisplayExpression.setText("");
+        DisplayResult.setText("");
     }//GEN-LAST:event_ButtonClearActionPerformed
 
     private void ButtonTransformToInverseFunctionsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonTransformToInverseFunctionsActionPerformed
         for (javax.swing.JButton button : TrigoFunctionButtons) {
-            String text = button.getText();
-            
-            if 
+            Matcher matcher = inverseFunctionPattern.matcher(button.getText());
+            if (matcher.find()) {
+                button.setText(matcher.group(1) != null ? matcher.group(2) + matcher.group(3) : "arc" + matcher.group(2) + matcher.group(3));
+            }
         }
     }//GEN-LAST:event_ButtonTransformToInverseFunctionsActionPerformed
 
     private void ButtonTrasnformToHyperbolicFunctionsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonTrasnformToHyperbolicFunctionsActionPerformed
-        String text = ButtonSen.getText();
-        
-        if (text.equals("sen(x)")) {
-            ButtonSen.setText("senh(x)");
-        } else if (text.equals("senh(x)")) {
-            ButtonSen.setText("sen(x)");
-        }
-        
-        if (text.equals("arcsen(x)")) {
-            ButtonSen.setText("arcsenh(x)");
-        } else if (text.equals("arcsenh(x)")) {
-            ButtonSen.setText("arcsen(x)");
+        for (javax.swing.JButton button : TrigoFunctionButtons) {
+            Matcher matcher = hyperbolicFunctionPattern.matcher(button.getText());
+            if (matcher.find()) {
+                button.setText(matcher.group(2).equals("h(x)") ? matcher.group(1) + "(x)" : matcher.group(1) + "h(x)");
+            }
         }
     }//GEN-LAST:event_ButtonTrasnformToHyperbolicFunctionsActionPerformed
 
+    private void ButtonNumber0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonNumber0ActionPerformed
+        AddValueToExpression("0");
+    }//GEN-LAST:event_ButtonNumber0ActionPerformed
+
+    private void ButtonCommaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCommaActionPerformed
+        AddValueToExpression(",");
+    }//GEN-LAST:event_ButtonCommaActionPerformed
+
+    private void ButtonNumber1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonNumber1ActionPerformed
+        AddValueToExpression("1");
+    }//GEN-LAST:event_ButtonNumber1ActionPerformed
+
+    private void ButtonNumber2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonNumber2ActionPerformed
+        AddValueToExpression("2");
+    }//GEN-LAST:event_ButtonNumber2ActionPerformed
+
+    private void ButtonNumber3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonNumber3ActionPerformed
+        AddValueToExpression("3");
+    }//GEN-LAST:event_ButtonNumber3ActionPerformed
+
+    private void ButtonNumber4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonNumber4ActionPerformed
+        AddValueToExpression("4");
+    }//GEN-LAST:event_ButtonNumber4ActionPerformed
+
+    private void ButtonNumber5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonNumber5ActionPerformed
+        AddValueToExpression("5");
+    }//GEN-LAST:event_ButtonNumber5ActionPerformed
+
+    private void ButtonNumber6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonNumber6ActionPerformed
+        AddValueToExpression("6");
+    }//GEN-LAST:event_ButtonNumber6ActionPerformed
+
+    private void ButtonNumber7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonNumber7ActionPerformed
+        AddValueToExpression("7");
+    }//GEN-LAST:event_ButtonNumber7ActionPerformed
+
+    private void ButtonNumber8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonNumber8ActionPerformed
+        AddValueToExpression("8");
+    }//GEN-LAST:event_ButtonNumber8ActionPerformed
+
+    private void ButtonNumber9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonNumber9ActionPerformed
+        AddValueToExpression("9");
+    }//GEN-LAST:event_ButtonNumber9ActionPerformed
+
+    private void ButtonToOpenParenthesisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonToOpenParenthesisActionPerformed
+        AddValueToExpression("(");
+    }//GEN-LAST:event_ButtonToOpenParenthesisActionPerformed
+
+    private void ButtonToCloseParenthesisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonToCloseParenthesisActionPerformed
+        AddValueToExpression(")");
+    }//GEN-LAST:event_ButtonToCloseParenthesisActionPerformed
+
+    private void ButtonDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonDeleteActionPerformed
+        String text = DisplayExpression.getText();
+        DisplayExpression.setText(text.equals("") ? "" : text.substring(0, text.length() - 1)); 
+    }//GEN-LAST:event_ButtonDeleteActionPerformed
+    
+    private void AddValueToExpression(String value) {
+        DisplayExpression.setText(DisplayExpression.getText() + value);
+    }
+    
+    private void UpdateResult() {
+        String result = operator.ToSolve(DisplayExpression.getText());
+        DisplayResult.setText(result.equals("Syntax Error") ? "" : result);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton ButtonAbs;
