@@ -31,8 +31,8 @@ public class MainView extends javax.swing.JFrame {
         TrigoFunctionButtons.add(ButtonSec);
         TrigoFunctionButtons.add(ButtonCsc);
         TrigoFunctionButtons.add(ButtonCot);
-        hyperbolicFunctionPattern = Pattern.compile("(sen|cos|tan|sec|csc|cot|arcsen|arccos|arctan|arcsec|arccsc|arccot)(h?\\(x\\))");
-        inverseFunctionPattern = Pattern.compile("(arc)?(sen|cos|tan|sec|csc|cot)(h?\\(x\\))");
+        hyperbolicFunctionPattern = Pattern.compile("(a?sin|a?cos|a?tan|a?sec|a?csc|a?cot)(h?\\(x\\))");
+        inverseFunctionPattern = Pattern.compile("(a)?(sin|cos|tan|sec|csc|cot)(h?\\(x\\))");
         DisplayExpression.setText("");
         DisplayResult.setText("");
     }
@@ -151,7 +151,7 @@ public class MainView extends javax.swing.JFrame {
         });
 
         ButtonSen.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
-        ButtonSen.setText("sen(x)");
+        ButtonSen.setText("sin(x)");
         ButtonSen.setBorder(null);
         ButtonSen.setBorderPainted(false);
         ButtonSen.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -259,6 +259,11 @@ public class MainView extends javax.swing.JFrame {
         ButtonNumberPi.setMaximumSize(new java.awt.Dimension(50, 20));
         ButtonNumberPi.setMinimumSize(new java.awt.Dimension(50, 20));
         ButtonNumberPi.setPreferredSize(new java.awt.Dimension(55, 30));
+        ButtonNumberPi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonNumberPiActionPerformed(evt);
+            }
+        });
 
         ButtonNumberE.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         ButtonNumberE.setText("e");
@@ -269,6 +274,11 @@ public class MainView extends javax.swing.JFrame {
         ButtonNumberE.setMaximumSize(new java.awt.Dimension(50, 20));
         ButtonNumberE.setMinimumSize(new java.awt.Dimension(50, 20));
         ButtonNumberE.setPreferredSize(new java.awt.Dimension(55, 30));
+        ButtonNumberE.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonNumberEActionPerformed(evt);
+            }
+        });
 
         ButtonClear.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         ButtonClear.setText("C");
@@ -419,6 +429,11 @@ public class MainView extends javax.swing.JFrame {
         ButtonFactorial.setMaximumSize(new java.awt.Dimension(50, 20));
         ButtonFactorial.setMinimumSize(new java.awt.Dimension(50, 20));
         ButtonFactorial.setPreferredSize(new java.awt.Dimension(55, 30));
+        ButtonFactorial.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonFactorialActionPerformed(evt);
+            }
+        });
 
         ButtonDivision.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         ButtonDivision.setText("/");
@@ -589,6 +604,11 @@ public class MainView extends javax.swing.JFrame {
         jButton36.setMaximumSize(new java.awt.Dimension(50, 20));
         jButton36.setMinimumSize(new java.awt.Dimension(50, 20));
         jButton36.setPreferredSize(new java.awt.Dimension(55, 30));
+        jButton36.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton36ActionPerformed(evt);
+            }
+        });
 
         ButtonNumber1.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         ButtonNumber1.setText("1");
@@ -659,6 +679,11 @@ public class MainView extends javax.swing.JFrame {
         jButton41.setMaximumSize(new java.awt.Dimension(50, 20));
         jButton41.setMinimumSize(new java.awt.Dimension(50, 20));
         jButton41.setPreferredSize(new java.awt.Dimension(55, 30));
+        jButton41.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton41ActionPerformed(evt);
+            }
+        });
 
         ButtonToChangeSign.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         ButtonToChangeSign.setText("+/-");
@@ -935,7 +960,7 @@ public class MainView extends javax.swing.JFrame {
         for (javax.swing.JButton button : TrigoFunctionButtons) {
             Matcher matcher = inverseFunctionPattern.matcher(button.getText());
             if (matcher.find()) {
-                button.setText(matcher.group(1) != null ? matcher.group(2) + matcher.group(3) : "arc" + matcher.group(2) + matcher.group(3));
+                button.setText(matcher.group(1) != null ? matcher.group(2) + matcher.group(3) : "a" + matcher.group(2) + matcher.group(3));
             }
         }
     }//GEN-LAST:event_ButtonTransformToInverseFunctionsActionPerformed
@@ -1046,6 +1071,26 @@ public class MainView extends javax.swing.JFrame {
     private void ButtonSqrtRootActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonSqrtRootActionPerformed
         AddValueToExpression("sqrt(");
     }//GEN-LAST:event_ButtonSqrtRootActionPerformed
+
+    private void ButtonNumberEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonNumberEActionPerformed
+        AddValueToExpression("e");
+    }//GEN-LAST:event_ButtonNumberEActionPerformed
+
+    private void ButtonNumberPiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonNumberPiActionPerformed
+        AddValueToExpression("pi");
+    }//GEN-LAST:event_ButtonNumberPiActionPerformed
+
+    private void jButton41ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton41ActionPerformed
+        AddValueToExpression("ln(");
+    }//GEN-LAST:event_jButton41ActionPerformed
+
+    private void jButton36ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton36ActionPerformed
+        AddValueToExpression("log(");
+    }//GEN-LAST:event_jButton36ActionPerformed
+
+    private void ButtonFactorialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonFactorialActionPerformed
+        AddValueToExpression("!");
+    }//GEN-LAST:event_ButtonFactorialActionPerformed
     
     private void AddValueToExpression(String value) {
         DisplayExpression.setText(DisplayExpression.getText() + value);

@@ -34,11 +34,11 @@ public class Prueba {
         System.out.println(operator.ToSolve("sech(0.5)"));
         System.out.println(operator.ToSolve("coth(0.5)"));
         System.out.println(operator.ToSolve("asinh(0.5)"));
-        System.out.println(operator.ToSolve("acosh(0.5)"));
+        System.out.println(operator.ToSolve("acosh(2)"));
         System.out.println(operator.ToSolve("atanh(0.5)"));
         System.out.println(operator.ToSolve("acsch(0.5)"));
         System.out.println(operator.ToSolve("asech(0.5)"));
-        System.out.println(operator.ToSolve("acoth(0.5)"));
+        System.out.println(operator.ToSolve("acoth(2)"));
         System.out.println(operator.ToSolve("abs(-0.5)"));
         System.out.println(operator.ToSolve("5!"));
         System.out.println(operator.ToSolve("(5! + 5)!"));

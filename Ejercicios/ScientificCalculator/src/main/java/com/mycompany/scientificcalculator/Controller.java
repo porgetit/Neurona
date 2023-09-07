@@ -4,7 +4,6 @@
  */
 package com.mycompany.scientificcalculator;
 
-import com.fathzer.soft.javaluator.DoubleEvaluator;
 import java.text.DecimalFormat;
 
 /**
@@ -12,11 +11,11 @@ import java.text.DecimalFormat;
  * @author Kevin Esguerra Cardona
  */
 public class Controller {
-    private final DoubleEvaluator solver;
+    private final CustomDoubleEvaluator solver;
     private final DecimalFormat formater;
     
     public Controller() {
-        solver = new DoubleEvaluator();
+        solver = new CustomDoubleEvaluator();
         formater = new DecimalFormat("#.########");
     }
     
