@@ -45,6 +45,7 @@ public class Prueba {
         System.out.println(operator.ToSolve("log(2)"));
         System.out.println(operator.ToSolve("ln(e)"));
         System.out.println(operator.ToSolve("pi"));
+        System.out.println(operator.ToSolve("5,e+8"));
         
     }
 }

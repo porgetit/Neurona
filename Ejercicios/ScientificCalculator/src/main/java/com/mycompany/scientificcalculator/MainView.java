@@ -64,7 +64,7 @@ public class MainView extends javax.swing.JFrame {
         ButtonNumberE = new javax.swing.JButton();
         ButtonClear = new javax.swing.JButton();
         ButtonDelete = new javax.swing.JButton();
-        ButtonPowerOf2 = new javax.swing.JButton();
+        ButtonPowerOf2Or3 = new javax.swing.JButton();
         ButtonOneOverX = new javax.swing.JButton();
         ButtonAbs = new javax.swing.JButton();
         ButtonExponentialNotation = new javax.swing.JButton();
@@ -79,17 +79,17 @@ public class MainView extends javax.swing.JFrame {
         ButtonNumber8 = new javax.swing.JButton();
         ButtonNumber9 = new javax.swing.JButton();
         ButtonProduct = new javax.swing.JButton();
-        jButton31 = new javax.swing.JButton();
+        Button10Power = new javax.swing.JButton();
         ButtonNumber4 = new javax.swing.JButton();
         ButtonNumber5 = new javax.swing.JButton();
         ButtonNumber6 = new javax.swing.JButton();
         ButtonDifference = new javax.swing.JButton();
-        jButton36 = new javax.swing.JButton();
+        ButtonLog10 = new javax.swing.JButton();
         ButtonNumber1 = new javax.swing.JButton();
         ButtonNumber2 = new javax.swing.JButton();
         ButtonNumber3 = new javax.swing.JButton();
         ButtonSum = new javax.swing.JButton();
-        jButton41 = new javax.swing.JButton();
+        ButtonLn = new javax.swing.JButton();
         ButtonToChangeSign = new javax.swing.JButton();
         ButtonNumber0 = new javax.swing.JButton();
         ButtonDecimalPoint = new javax.swing.JButton();
@@ -159,6 +159,11 @@ public class MainView extends javax.swing.JFrame {
         ButtonSen.setMaximumSize(new java.awt.Dimension(50, 20));
         ButtonSen.setMinimumSize(new java.awt.Dimension(50, 20));
         ButtonSen.setPreferredSize(new java.awt.Dimension(70, 30));
+        ButtonSen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonSenActionPerformed(evt);
+            }
+        });
 
         ButtonCos.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         ButtonCos.setText("cos(x)");
@@ -169,6 +174,11 @@ public class MainView extends javax.swing.JFrame {
         ButtonCos.setMaximumSize(new java.awt.Dimension(50, 20));
         ButtonCos.setMinimumSize(new java.awt.Dimension(50, 20));
         ButtonCos.setPreferredSize(new java.awt.Dimension(70, 30));
+        ButtonCos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonCosActionPerformed(evt);
+            }
+        });
 
         ButtonTan.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         ButtonTan.setText("tan(x)");
@@ -179,6 +189,11 @@ public class MainView extends javax.swing.JFrame {
         ButtonTan.setMaximumSize(new java.awt.Dimension(50, 20));
         ButtonTan.setMinimumSize(new java.awt.Dimension(50, 20));
         ButtonTan.setPreferredSize(new java.awt.Dimension(70, 30));
+        ButtonTan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonTanActionPerformed(evt);
+            }
+        });
 
         DisplayExpression.setFont(new java.awt.Font("Lucida Sans", 0, 14)); // NOI18N
         DisplayExpression.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
@@ -219,6 +234,11 @@ public class MainView extends javax.swing.JFrame {
         ButtonSec.setMaximumSize(new java.awt.Dimension(50, 20));
         ButtonSec.setMinimumSize(new java.awt.Dimension(50, 20));
         ButtonSec.setPreferredSize(new java.awt.Dimension(70, 30));
+        ButtonSec.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonSecActionPerformed(evt);
+            }
+        });
 
         ButtonCsc.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         ButtonCsc.setText("csc(x)");
@@ -229,6 +249,11 @@ public class MainView extends javax.swing.JFrame {
         ButtonCsc.setMaximumSize(new java.awt.Dimension(50, 20));
         ButtonCsc.setMinimumSize(new java.awt.Dimension(50, 20));
         ButtonCsc.setPreferredSize(new java.awt.Dimension(70, 30));
+        ButtonCsc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonCscActionPerformed(evt);
+            }
+        });
 
         ButtonCot.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         ButtonCot.setText("cot(x)");
@@ -239,6 +264,11 @@ public class MainView extends javax.swing.JFrame {
         ButtonCot.setMaximumSize(new java.awt.Dimension(50, 20));
         ButtonCot.setMinimumSize(new java.awt.Dimension(50, 20));
         ButtonCot.setPreferredSize(new java.awt.Dimension(70, 30));
+        ButtonCot.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonCotActionPerformed(evt);
+            }
+        });
 
         jButton11.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         jButton11.setText("2nd");
@@ -249,9 +279,14 @@ public class MainView extends javax.swing.JFrame {
         jButton11.setMaximumSize(new java.awt.Dimension(50, 20));
         jButton11.setMinimumSize(new java.awt.Dimension(50, 20));
         jButton11.setPreferredSize(new java.awt.Dimension(55, 30));
+        jButton11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton11ActionPerformed(evt);
+            }
+        });
 
         ButtonNumberPi.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
-        ButtonNumberPi.setText("Pi");
+        ButtonNumberPi.setText("pi");
         ButtonNumberPi.setBorder(null);
         ButtonNumberPi.setBorderPainted(false);
         ButtonNumberPi.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -310,18 +345,18 @@ public class MainView extends javax.swing.JFrame {
             }
         });
 
-        ButtonPowerOf2.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
-        ButtonPowerOf2.setText("x^2");
-        ButtonPowerOf2.setBorder(null);
-        ButtonPowerOf2.setBorderPainted(false);
-        ButtonPowerOf2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        ButtonPowerOf2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        ButtonPowerOf2.setMaximumSize(new java.awt.Dimension(50, 20));
-        ButtonPowerOf2.setMinimumSize(new java.awt.Dimension(50, 20));
-        ButtonPowerOf2.setPreferredSize(new java.awt.Dimension(55, 30));
-        ButtonPowerOf2.addActionListener(new java.awt.event.ActionListener() {
+        ButtonPowerOf2Or3.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
+        ButtonPowerOf2Or3.setText("x^2");
+        ButtonPowerOf2Or3.setBorder(null);
+        ButtonPowerOf2Or3.setBorderPainted(false);
+        ButtonPowerOf2Or3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        ButtonPowerOf2Or3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        ButtonPowerOf2Or3.setMaximumSize(new java.awt.Dimension(50, 20));
+        ButtonPowerOf2Or3.setMinimumSize(new java.awt.Dimension(50, 20));
+        ButtonPowerOf2Or3.setPreferredSize(new java.awt.Dimension(55, 30));
+        ButtonPowerOf2Or3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonPowerOf2ActionPerformed(evt);
+                ButtonPowerOf2Or3ActionPerformed(evt);
             }
         });
 
@@ -334,9 +369,14 @@ public class MainView extends javax.swing.JFrame {
         ButtonOneOverX.setMaximumSize(new java.awt.Dimension(50, 20));
         ButtonOneOverX.setMinimumSize(new java.awt.Dimension(50, 20));
         ButtonOneOverX.setPreferredSize(new java.awt.Dimension(55, 30));
+        ButtonOneOverX.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonOneOverXActionPerformed(evt);
+            }
+        });
 
         ButtonAbs.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
-        ButtonAbs.setText("|x|");
+        ButtonAbs.setText("abs(x)");
         ButtonAbs.setBorder(null);
         ButtonAbs.setBorderPainted(false);
         ButtonAbs.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -359,6 +399,11 @@ public class MainView extends javax.swing.JFrame {
         ButtonExponentialNotation.setMaximumSize(new java.awt.Dimension(50, 20));
         ButtonExponentialNotation.setMinimumSize(new java.awt.Dimension(50, 20));
         ButtonExponentialNotation.setPreferredSize(new java.awt.Dimension(55, 30));
+        ButtonExponentialNotation.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonExponentialNotationActionPerformed(evt);
+            }
+        });
 
         ButtonModule.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         ButtonModule.setText("mod");
@@ -525,15 +570,20 @@ public class MainView extends javax.swing.JFrame {
             }
         });
 
-        jButton31.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
-        jButton31.setText("10^x");
-        jButton31.setBorder(null);
-        jButton31.setBorderPainted(false);
-        jButton31.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jButton31.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton31.setMaximumSize(new java.awt.Dimension(50, 20));
-        jButton31.setMinimumSize(new java.awt.Dimension(50, 20));
-        jButton31.setPreferredSize(new java.awt.Dimension(55, 30));
+        Button10Power.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
+        Button10Power.setText("10^x");
+        Button10Power.setBorder(null);
+        Button10Power.setBorderPainted(false);
+        Button10Power.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        Button10Power.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        Button10Power.setMaximumSize(new java.awt.Dimension(50, 20));
+        Button10Power.setMinimumSize(new java.awt.Dimension(50, 20));
+        Button10Power.setPreferredSize(new java.awt.Dimension(55, 30));
+        Button10Power.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Button10PowerActionPerformed(evt);
+            }
+        });
 
         ButtonNumber4.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         ButtonNumber4.setText("4");
@@ -595,18 +645,18 @@ public class MainView extends javax.swing.JFrame {
             }
         });
 
-        jButton36.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
-        jButton36.setText("log");
-        jButton36.setBorder(null);
-        jButton36.setBorderPainted(false);
-        jButton36.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jButton36.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton36.setMaximumSize(new java.awt.Dimension(50, 20));
-        jButton36.setMinimumSize(new java.awt.Dimension(50, 20));
-        jButton36.setPreferredSize(new java.awt.Dimension(55, 30));
-        jButton36.addActionListener(new java.awt.event.ActionListener() {
+        ButtonLog10.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
+        ButtonLog10.setText("log(x)");
+        ButtonLog10.setBorder(null);
+        ButtonLog10.setBorderPainted(false);
+        ButtonLog10.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        ButtonLog10.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        ButtonLog10.setMaximumSize(new java.awt.Dimension(50, 20));
+        ButtonLog10.setMinimumSize(new java.awt.Dimension(50, 20));
+        ButtonLog10.setPreferredSize(new java.awt.Dimension(55, 30));
+        ButtonLog10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton36ActionPerformed(evt);
+                ButtonLog10ActionPerformed(evt);
             }
         });
 
@@ -670,18 +720,18 @@ public class MainView extends javax.swing.JFrame {
             }
         });
 
-        jButton41.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
-        jButton41.setText("ln");
-        jButton41.setBorder(null);
-        jButton41.setBorderPainted(false);
-        jButton41.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jButton41.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton41.setMaximumSize(new java.awt.Dimension(50, 20));
-        jButton41.setMinimumSize(new java.awt.Dimension(50, 20));
-        jButton41.setPreferredSize(new java.awt.Dimension(55, 30));
-        jButton41.addActionListener(new java.awt.event.ActionListener() {
+        ButtonLn.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
+        ButtonLn.setText("ln(x)");
+        ButtonLn.setBorder(null);
+        ButtonLn.setBorderPainted(false);
+        ButtonLn.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        ButtonLn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        ButtonLn.setMaximumSize(new java.awt.Dimension(50, 20));
+        ButtonLn.setMinimumSize(new java.awt.Dimension(50, 20));
+        ButtonLn.setPreferredSize(new java.awt.Dimension(55, 30));
+        ButtonLn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton41ActionPerformed(evt);
+                ButtonLnActionPerformed(evt);
             }
         });
 
@@ -767,7 +817,7 @@ public class MainView extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(ButtonDelete, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(ButtonPowerOf2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(ButtonPowerOf2Or3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(ButtonOneOverX, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -797,7 +847,7 @@ public class MainView extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(ButtonProduct, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jButton31, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(Button10Power, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(ButtonNumber4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -807,7 +857,7 @@ public class MainView extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(ButtonDifference, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jButton36, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(ButtonLog10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(ButtonNumber1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -817,7 +867,7 @@ public class MainView extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(ButtonSum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jButton41, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(ButtonLn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(ButtonToChangeSign, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -880,7 +930,7 @@ public class MainView extends javax.swing.JFrame {
                     .addComponent(ButtonDelete, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ButtonPowerOf2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ButtonPowerOf2Or3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ButtonOneOverX, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ButtonAbs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ButtonExponentialNotation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -901,21 +951,21 @@ public class MainView extends javax.swing.JFrame {
                     .addComponent(ButtonProduct, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton31, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Button10Power, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ButtonNumber4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ButtonNumber5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ButtonNumber6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ButtonDifference, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton36, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ButtonLog10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ButtonNumber1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ButtonNumber2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ButtonNumber3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ButtonSum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton41, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ButtonLn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ButtonToChangeSign, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ButtonNumber0, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ButtonDecimalPoint, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -975,55 +1025,55 @@ public class MainView extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonTrasnformToHyperbolicFunctionsActionPerformed
 
     private void ButtonNumber0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonNumber0ActionPerformed
-        AddValueToExpression("0");
+        AddValueToExpression(ButtonNumber0.getText());
     }//GEN-LAST:event_ButtonNumber0ActionPerformed
 
     private void ButtonDecimalPointActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonDecimalPointActionPerformed
-        AddValueToExpression(".");     
+        AddValueToExpression(ButtonDecimalPoint.getText());     
     }//GEN-LAST:event_ButtonDecimalPointActionPerformed
 
     private void ButtonNumber1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonNumber1ActionPerformed
-        AddValueToExpression("1");
+        AddValueToExpression(ButtonNumber1.getText());
     }//GEN-LAST:event_ButtonNumber1ActionPerformed
 
     private void ButtonNumber2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonNumber2ActionPerformed
-        AddValueToExpression("2");
+        AddValueToExpression(ButtonNumber2.getText());
     }//GEN-LAST:event_ButtonNumber2ActionPerformed
 
     private void ButtonNumber3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonNumber3ActionPerformed
-        AddValueToExpression("3");
+        AddValueToExpression(ButtonNumber3.getText());
     }//GEN-LAST:event_ButtonNumber3ActionPerformed
 
     private void ButtonNumber4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonNumber4ActionPerformed
-        AddValueToExpression("4");
+        AddValueToExpression(ButtonNumber4.getText());
     }//GEN-LAST:event_ButtonNumber4ActionPerformed
 
     private void ButtonNumber5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonNumber5ActionPerformed
-        AddValueToExpression("5");
+        AddValueToExpression(ButtonNumber5.getText());
     }//GEN-LAST:event_ButtonNumber5ActionPerformed
 
     private void ButtonNumber6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonNumber6ActionPerformed
-        AddValueToExpression("6");
+        AddValueToExpression(ButtonNumber6.getText());
     }//GEN-LAST:event_ButtonNumber6ActionPerformed
 
     private void ButtonNumber7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonNumber7ActionPerformed
-        AddValueToExpression("7");
+        AddValueToExpression(ButtonNumber7.getText());
     }//GEN-LAST:event_ButtonNumber7ActionPerformed
 
     private void ButtonNumber8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonNumber8ActionPerformed
-        AddValueToExpression("8");
+        AddValueToExpression(ButtonNumber8.getText());
     }//GEN-LAST:event_ButtonNumber8ActionPerformed
 
     private void ButtonNumber9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonNumber9ActionPerformed
-        AddValueToExpression("9");
+        AddValueToExpression(ButtonNumber9.getText());
     }//GEN-LAST:event_ButtonNumber9ActionPerformed
 
     private void ButtonToOpenParenthesisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonToOpenParenthesisActionPerformed
-        AddValueToExpression("(");
+        AddValueToExpression(ButtonToOpenParenthesis.getText());
     }//GEN-LAST:event_ButtonToOpenParenthesisActionPerformed
 
     private void ButtonToCloseParenthesisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonToCloseParenthesisActionPerformed
-        AddValueToExpression(")");
+        AddValueToExpression(ButtonToCloseParenthesis.getText());
     }//GEN-LAST:event_ButtonToCloseParenthesisActionPerformed
 
     private void ButtonDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonDeleteActionPerformed
@@ -1033,19 +1083,19 @@ public class MainView extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonDeleteActionPerformed
 
     private void ButtonDivisionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonDivisionActionPerformed
-        AddValueToExpression("/");
+        AddValueToExpression(ButtonDivision.getText());
     }//GEN-LAST:event_ButtonDivisionActionPerformed
 
     private void ButtonProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonProductActionPerformed
-        AddValueToExpression("*");
+        AddValueToExpression(ButtonProduct.getText());
     }//GEN-LAST:event_ButtonProductActionPerformed
 
     private void ButtonDifferenceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonDifferenceActionPerformed
-        AddValueToExpression("-");
+        AddValueToExpression(ButtonDifference.getText());
     }//GEN-LAST:event_ButtonDifferenceActionPerformed
 
     private void ButtonSumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonSumActionPerformed
-        AddValueToExpression("+");
+        AddValueToExpression(ButtonSum.getText());
     }//GEN-LAST:event_ButtonSumActionPerformed
 
     private void ButtonEqualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonEqualActionPerformed
@@ -1053,44 +1103,85 @@ public class MainView extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonEqualActionPerformed
 
     private void ButtonModuleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonModuleActionPerformed
-        AddValueToExpression("%");
+        AddValueToExpression(ButtonModule.getText());
     }//GEN-LAST:event_ButtonModuleActionPerformed
 
-    private void ButtonPowerOf2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonPowerOf2ActionPerformed
-        AddValueToExpression("^2");
-    }//GEN-LAST:event_ButtonPowerOf2ActionPerformed
+    private void ButtonPowerOf2Or3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonPowerOf2Or3ActionPerformed
+        AddValueToExpression(ButtonPowerOf2Or3.getText().substring(1, ButtonPowerOf2Or3.getText().length()));
+    }//GEN-LAST:event_ButtonPowerOf2Or3ActionPerformed
 
     private void ButtonPowerOfYActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonPowerOfYActionPerformed
-        AddValueToExpression("^");
+        AddValueToExpression(ButtonPowerOfY.getText().substring(1));
     }//GEN-LAST:event_ButtonPowerOfYActionPerformed
 
     private void ButtonAbsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonAbsActionPerformed
-        AddValueToExpression("abs(");
+        AddValueToExpression(ButtonAbs.getText().substring(0, ButtonAbs.getText().length()));
     }//GEN-LAST:event_ButtonAbsActionPerformed
 
     private void ButtonSqrtRootActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonSqrtRootActionPerformed
-        AddValueToExpression("sqrt(");
+        AddValueToExpression(ButtonSqrtRoot.getText().substring(0, ButtonSqrtRoot.getText().length() -2));
     }//GEN-LAST:event_ButtonSqrtRootActionPerformed
 
     private void ButtonNumberEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonNumberEActionPerformed
-        AddValueToExpression("e");
+        AddValueToExpression(ButtonNumberE.getText());
     }//GEN-LAST:event_ButtonNumberEActionPerformed
 
     private void ButtonNumberPiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonNumberPiActionPerformed
-        AddValueToExpression("pi");
+        AddValueToExpression(ButtonNumberPi.getText());
     }//GEN-LAST:event_ButtonNumberPiActionPerformed
 
-    private void jButton41ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton41ActionPerformed
-        AddValueToExpression("ln(");
-    }//GEN-LAST:event_jButton41ActionPerformed
+    private void ButtonLnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonLnActionPerformed
+        AddValueToExpression(ButtonLn.getText().substring(0, ButtonLn.getText().length() -2));
+    }//GEN-LAST:event_ButtonLnActionPerformed
 
-    private void jButton36ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton36ActionPerformed
-        AddValueToExpression("log(");
-    }//GEN-LAST:event_jButton36ActionPerformed
+    private void ButtonLog10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonLog10ActionPerformed
+        AddValueToExpression(ButtonLog10.getText().substring(0, ButtonLog10.getText().length() -2));
+    }//GEN-LAST:event_ButtonLog10ActionPerformed
 
     private void ButtonFactorialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonFactorialActionPerformed
-        AddValueToExpression("!");
+        AddValueToExpression(ButtonFactorial.getText().substring(1));
     }//GEN-LAST:event_ButtonFactorialActionPerformed
+
+    private void ButtonSenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonSenActionPerformed
+        AddValueToExpression(ButtonSen.getText().substring(0, ButtonSen.getText().length() -2));
+    }//GEN-LAST:event_ButtonSenActionPerformed
+
+    private void ButtonSecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonSecActionPerformed
+        AddValueToExpression(ButtonSec.getText().substring(0, ButtonSec.getText().length() -2));
+    }//GEN-LAST:event_ButtonSecActionPerformed
+
+    private void ButtonCosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCosActionPerformed
+        AddValueToExpression(ButtonCos.getText().substring(0, ButtonCos.getText().length() -2));
+    }//GEN-LAST:event_ButtonCosActionPerformed
+
+    private void ButtonCscActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCscActionPerformed
+        AddValueToExpression(ButtonCsc.getText().substring(0, ButtonCsc.getText().length() -2));
+    }//GEN-LAST:event_ButtonCscActionPerformed
+
+    private void ButtonTanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonTanActionPerformed
+        AddValueToExpression(ButtonTan.getText().substring(0, ButtonTan.getText().length() -2));
+    }//GEN-LAST:event_ButtonTanActionPerformed
+
+    private void ButtonCotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCotActionPerformed
+        AddValueToExpression(ButtonCot.getText().substring(0, ButtonCot.getText().length() -2));
+    }//GEN-LAST:event_ButtonCotActionPerformed
+
+    private void ButtonOneOverXActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonOneOverXActionPerformed
+        AddValueToExpression(ButtonOneOverX.getText().substring(0, ButtonOneOverX.getText().length() -1));
+    }//GEN-LAST:event_ButtonOneOverXActionPerformed
+
+    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+        String text = ButtonPowerOf2Or3.getText();
+        ButtonPowerOf2Or3.setText(text.equals("x^2") ? "x^3" : "x^2");
+    }//GEN-LAST:event_jButton11ActionPerformed
+
+    private void ButtonExponentialNotationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonExponentialNotationActionPerformed
+        AddValueToExpression(ButtonExponentialNotation.getText());
+    }//GEN-LAST:event_ButtonExponentialNotationActionPerformed
+
+    private void Button10PowerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button10PowerActionPerformed
+        AddValueToExpression(Button10Power.getText().substring(0, Button10Power.getText().length() -1));
+    }//GEN-LAST:event_Button10PowerActionPerformed
     
     private void AddValueToExpression(String value) {
         DisplayExpression.setText(DisplayExpression.getText() + value);
@@ -1122,6 +1213,7 @@ public class MainView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton Button10Power;
     public javax.swing.JButton ButtonAbs;
     public javax.swing.JButton ButtonClear;
     public javax.swing.JButton ButtonCos;
@@ -1134,6 +1226,8 @@ public class MainView extends javax.swing.JFrame {
     public javax.swing.JButton ButtonEqual;
     public javax.swing.JButton ButtonExponentialNotation;
     public javax.swing.JButton ButtonFactorial;
+    public javax.swing.JButton ButtonLn;
+    public javax.swing.JButton ButtonLog10;
     public javax.swing.JButton ButtonModule;
     public javax.swing.JButton ButtonNumber0;
     public javax.swing.JButton ButtonNumber1;
@@ -1148,7 +1242,7 @@ public class MainView extends javax.swing.JFrame {
     public javax.swing.JButton ButtonNumberE;
     public javax.swing.JButton ButtonNumberPi;
     public javax.swing.JButton ButtonOneOverX;
-    public javax.swing.JButton ButtonPowerOf2;
+    public javax.swing.JButton ButtonPowerOf2Or3;
     public javax.swing.JButton ButtonPowerOfY;
     public javax.swing.JButton ButtonProduct;
     public javax.swing.JButton ButtonSec;
@@ -1164,9 +1258,6 @@ public class MainView extends javax.swing.JFrame {
     public javax.swing.JTextField DisplayExpression;
     public javax.swing.JTextField DisplayResult;
     public javax.swing.JButton jButton11;
-    public javax.swing.JButton jButton31;
-    public javax.swing.JButton jButton36;
-    public javax.swing.JButton jButton41;
     private javax.swing.JPanel jPanel1;
     public javax.swing.JSeparator jSeparator1;
     public javax.swing.JTextField jTextField1;

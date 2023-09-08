@@ -36,6 +36,7 @@ public class CustomDoubleEvaluator extends DoubleEvaluator {
         parameters.add(new Function("asech", 1));
         parameters.add(new Function("acoth", 1));
         parameters.add(new Operator("!", 1, Operator.Associativity.LEFT, 3));
+        parameters.add(new Operator(",e+", 2, Operator.Associativity.LEFT, 2));
         return parameters;
     }
 
@@ -173,6 +174,16 @@ public class CustomDoubleEvaluator extends DoubleEvaluator {
                 result *= i;
             }
             return (double) result;
+        } else if (",e+".equals(operator.getSymbol())) {
+            double leftOperand = operands.next();
+            double rightOperand = operands.next();
+            
+            if (rightOperand < 0) {
+                throw new IllegalArgumentException("La cantidad de ceros no puede ser negativa");
+            }
+            
+            int multiplier = (int) Math.pow(10, rightOperand);
+            return leftOperand * multiplier;
         }
         return super.evaluate(operator, operands, evaluationContext);
     }
