@@ -97,7 +97,7 @@
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jButton11" min="-2" max="-2" attributes="0"/>
+                                  <Component id="ButtonChangePowerFrom2To3" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Component id="ButtonNumberPi" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -165,7 +165,7 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="ButtonLn" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="ButtonToChangeSign" min="-2" max="-2" attributes="0"/>
+                                  <Component id="ButtonDoubleZero" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Component id="ButtonNumber0" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -235,7 +235,7 @@
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jButton11" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="ButtonChangePowerFrom2To3" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="ButtonNumberPi" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="ButtonNumberE" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="ButtonClear" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -284,7 +284,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="ButtonLn" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="ButtonToChangeSign" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="ButtonDoubleZero" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="ButtonNumber0" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="ButtonDecimalPoint" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="ButtonEqual" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -633,7 +633,7 @@
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton11">
+        <Component class="javax.swing.JButton" name="ButtonChangePowerFrom2To3">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Lucida Sans" size="12" style="0"/>
@@ -658,7 +658,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton11ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonChangePowerFrom2To3ActionPerformed"/>
           </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -1594,12 +1594,12 @@
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JButton" name="ButtonToChangeSign">
+        <Component class="javax.swing.JButton" name="ButtonDoubleZero">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Lucida Sans" size="12" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="+/-"/>
+            <Property name="text" type="java.lang.String" value="00"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
             </Property>
@@ -1618,6 +1618,9 @@
               <Dimension value="[55, 30]"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonDoubleZeroActionPerformed"/>
+          </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
