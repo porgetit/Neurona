@@ -1,4 +1,7 @@
-com/mycompany/tictactoe/Tablero.class
-com/mycompany/tictactoe/Juego.class
-com/mycompany/tictactoe/Tictactoe.class
-com/mycompany/tictactoe/Jugador.class
+com\mycompany\tictactoe\Jugador.class
+com\mycompany\tictactoe\JFrameTablero$1.class
+com\mycompany\tictactoe\Juego.class
+com\mycompany\tictactoe\JFrameTablero.class
+com\mycompany\tictactoe\Tictactoe.class
+com\mycompany\tictactoe\Partida.class
+com\mycompany\tictactoe\Tablero.class
