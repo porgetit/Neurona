@@ -4,9 +4,11 @@
  */
 package com.mycompany.tictactoe;
 
+import java.util.HashMap;
+
 /**
  *
- * @author xdpor
+ * @author Kevin Esguerra Cardona
  */
 public class MainMenu extends javax.swing.JFrame {
     private final boolean isSinglePlayer;
@@ -103,13 +105,12 @@ public class MainMenu extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(OnePersonButton, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(Title)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(TwoPeopleButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ExitButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(Title)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(TwoPeopleButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(ExitButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(OnePersonButton, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(31, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -136,12 +137,18 @@ public class MainMenu extends javax.swing.JFrame {
 
     private void OnePersonButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OnePersonButtonActionPerformed
         this.dispose();
-        new DataPlayerForm(isSinglePlayer).setVisible(true);
+        new GameView(new HashMap<String, Integer>() {{
+            put("Player 1", 0);
+            put("Machine", 0);
+        }}).setVisible(true);
     }//GEN-LAST:event_OnePersonButtonActionPerformed
 
     private void TwoPeopleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TwoPeopleButtonActionPerformed
         this.dispose();
-        new DataPlayerForm(!isSinglePlayer).setVisible(true);
+        new GameView(new HashMap<String, Integer>() {{
+            put("Player 1", 0);
+            put("Player 2", 0);
+        }}).setVisible(true);
     }//GEN-LAST:event_TwoPeopleButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
