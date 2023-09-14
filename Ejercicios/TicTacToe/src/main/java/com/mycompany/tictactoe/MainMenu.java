@@ -137,18 +137,12 @@ public class MainMenu extends javax.swing.JFrame {
 
     private void OnePersonButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OnePersonButtonActionPerformed
         this.dispose();
-        new GameView(new HashMap<String, Integer>() {{
-            put("Player 1", 0);
-            put("Machine", 0);
-        }}).setVisible(true);
+        new MatchMenu(true).setVisible(true);
     }//GEN-LAST:event_OnePersonButtonActionPerformed
 
     private void TwoPeopleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TwoPeopleButtonActionPerformed
         this.dispose();
-        new GameView(new HashMap<String, Integer>() {{
-            put("Player 1", 0);
-            put("Player 2", 0);
-        }}).setVisible(true);
+        new MatchMenu(false).setVisible(true);
     }//GEN-LAST:event_TwoPeopleButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -4,21 +4,60 @@
  */
 package com.mycompany.tictactoe;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 /**
  *
  * @author Kevin Esguerra Cardona
  */
-public class GameView extends javax.swing.JFrame {
-    Map<String, Integer> players;
+public class MatchView extends javax.swing.JFrame {
+    private final String typeOfGame;
+    private final boolean isVSMachine;
+    private final Map<Integer, Player> players;
+    private final List<Game> games;
+    private int turn;
+    private int idGame;
 
     /**
      * Creates new form GameView
+     * @param typeOfGame
+     * @param isVSMachine
      * @param players
      */
-    public GameView(Map<String, Integer> players) {
+    public MatchView(String typeOfGame, boolean isVSMachine, Map<Integer, Player> players) {
+        this.typeOfGame = typeOfGame;
+        this.isVSMachine = isVSMachine;
         this.players = players;
+        this.games = new ArrayList<>() {{
+            switch (typeOfGame) {
+                case "unique" -> {
+                    add(new Game());
+                    LabelTypeOfGame.setText("Unique");
+                }
+                case "2 out of 3" -> {
+                    add(new Game());
+                    add(new Game());
+                    add(new Game());
+                    LabelTypeOfGame.setText("2 out of 3");
+                }
+                case "deathmatch" -> {
+                    add(new Game());
+                    LabelTypeOfGame.setText("DeathMatch");
+                }
+            }
+        }};
+        this.turn = 1;
+        this.idGame = 1;
+        
+        LabelPlayer1Name_1.setText(players.get(1).getName());
+        LabelPlayer2Name_1.setText(players.get(2).getName());
+        LabelPlayer1Name_2.setText(players.get(1).getName());
+        LabelPlayer2Name_2.setText(players.get(2).getName());
+        shootWarning("");
+        setPoints();
+        setTurn();
         initComponents();
     }
 
@@ -44,7 +83,8 @@ public class GameView extends javax.swing.JFrame {
         LabelPlayer1Points = new javax.swing.JLabel();
         LabelPlayer2Points = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        LabelGameTurnOf = new javax.swing.JLabel();
+        LabelTurnOf = new javax.swing.JLabel();
+        LabelWarning = new javax.swing.JLabel();
         BoardPanel = new javax.swing.JPanel();
         ButtonBox11 = new javax.swing.JButton();
         ButtonBox12 = new javax.swing.JButton();
@@ -66,7 +106,6 @@ public class GameView extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
         setFocusable(false);
-        setMaximumSize(new java.awt.Dimension(630, 380));
         setMinimumSize(new java.awt.Dimension(630, 380));
         setResizable(false);
         setSize(new java.awt.Dimension(700, 500));
@@ -100,9 +139,11 @@ public class GameView extends javax.swing.JFrame {
 
         LabelPlayer2Points.setText("<<Player2.Puntos>>");
 
-        jLabel2.setText("Time for:");
+        jLabel2.setText("Turn Of:");
 
-        LabelGameTurnOf.setText("<<Game.TurnOf>>");
+        LabelTurnOf.setText("<<Game.TurnOf>>");
+
+        LabelWarning.setText("<<Warning>>");
 
         javax.swing.GroupLayout DataPanelLayout = new javax.swing.GroupLayout(DataPanel);
         DataPanel.setLayout(DataPanelLayout);
@@ -128,9 +169,12 @@ public class GameView extends javax.swing.JFrame {
                                 .addComponent(LabelPlayer2Name_1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(LabelTypeOfGame, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(DataPanelLayout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(LabelGameTurnOf)
+                        .addGroup(DataPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(DataPanelLayout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(LabelTurnOf))
+                            .addComponent(LabelWarning))
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
         DataPanelLayout.setVerticalGroup(
@@ -155,8 +199,10 @@ public class GameView extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(DataPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(LabelGameTurnOf))
-                .addGap(36, 36, 36))
+                    .addComponent(LabelTurnOf))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(LabelWarning)
+                .addGap(14, 14, 14))
         );
 
         ButtonBox11.setText("11");
@@ -320,8 +366,18 @@ public class GameView extends javax.swing.JFrame {
         });
 
         ButtonReturnToMenu.setText("Return to Menu");
+        ButtonReturnToMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonReturnToMenuActionPerformed(evt);
+            }
+        });
 
         ButtonResetGame.setText("Reset Game");
+        ButtonResetGame.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonResetGameActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout GamePanelLayout = new javax.swing.GroupLayout(GamePanel);
         GamePanel.setLayout(GamePanelLayout);
@@ -342,7 +398,7 @@ public class GameView extends javax.swing.JFrame {
                         .addGroup(GamePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(ButtonEndGame)
                             .addComponent(BoardPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 55, Short.MAX_VALUE)))
+                        .addGap(0, 103, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         GamePanelLayout.setVerticalGroup(
@@ -359,7 +415,7 @@ public class GameView extends javax.swing.JFrame {
                     .addComponent(ButtonEndGame)
                     .addComponent(ButtonReturnToMenu)
                     .addComponent(ButtonResetGame))
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -382,45 +438,150 @@ public class GameView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ButtonBox11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonBox11ActionPerformed
-        // TODO add your handling code here:
+        toMove("11");
     }//GEN-LAST:event_ButtonBox11ActionPerformed
 
     private void ButtonBox12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonBox12ActionPerformed
-        // TODO add your handling code here:
+        toMove("12");
     }//GEN-LAST:event_ButtonBox12ActionPerformed
 
     private void ButtonBox13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonBox13ActionPerformed
-        // TODO add your handling code here:
+        toMove("13");
     }//GEN-LAST:event_ButtonBox13ActionPerformed
 
     private void ButtonBox21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonBox21ActionPerformed
-        // TODO add your handling code here:
+        toMove("21");
     }//GEN-LAST:event_ButtonBox21ActionPerformed
 
     private void ButtonBox22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonBox22ActionPerformed
-        // TODO add your handling code here:
+        toMove("22");
     }//GEN-LAST:event_ButtonBox22ActionPerformed
 
     private void ButtonBox23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonBox23ActionPerformed
-        // TODO add your handling code here:
+        toMove("23");
     }//GEN-LAST:event_ButtonBox23ActionPerformed
 
     private void ButtonBox31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonBox31ActionPerformed
-        // TODO add your handling code here:
+        toMove("31");
     }//GEN-LAST:event_ButtonBox31ActionPerformed
 
     private void ButtonBox32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonBox32ActionPerformed
-        // TODO add your handling code here:
+        toMove("32");
     }//GEN-LAST:event_ButtonBox32ActionPerformed
 
     private void ButtonBox33ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonBox33ActionPerformed
-        // TODO add your handling code here:
+        toMove("33");
     }//GEN-LAST:event_ButtonBox33ActionPerformed
 
     private void ButtonEndGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonEndGameActionPerformed
-        // TODO add your handling code here:
+        toEndGame();
     }//GEN-LAST:event_ButtonEndGameActionPerformed
 
+    private void ButtonReturnToMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonReturnToMenuActionPerformed
+        this.dispose();
+        new MainMenu().setVisible(true);
+    }//GEN-LAST:event_ButtonReturnToMenuActionPerformed
+
+    private void ButtonResetGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonResetGameActionPerformed
+        this.dispose();
+        new MatchView(typeOfGame, isVSMachine, players).setVisible(true);
+    }//GEN-LAST:event_ButtonResetGameActionPerformed
+    
+    private void shootWarning(String warning) {
+        LabelWarning.setText(warning);
+    }
+    
+    private void toEndGame() {
+        this.dispose();
+        new EndGameView(players).setVisible(true);
+    }
+    
+    private void setPoints() {
+        LabelPlayer1Points.setText(players.get(1).getPunctuation());
+        LabelPlayer2Points.setText(players.get(2).getPunctuation());
+    }
+    
+    private void setTurn() {
+        turn = turn == 1 ? 2 : 1;
+        LabelTurnOf.setText(players.get(turn).getName());
+    }
+    
+    private void toMove(String location) {
+        switch (typeOfGame) {
+            case "unique" -> toMoveUnique(location);
+            case "2 out of 3" -> toMove2OutOf3(location);
+            case "deathmatch" -> toMoveDeathMatch(location);
+        }
+    }
+    
+    private void toMoveUnique(String location) { // Method to move when it's a Unique Game Match
+        try {
+            games.get(idGame).setBox(location, turn);
+            if (games.get(idGame).doesGameEnd()) {
+                int winner = games.get(idGame).getWinner();
+                
+                if (winner != 0) { // Puntua si no es empate
+                    players.get(winner).addOnePoint();
+                }
+                
+                toEndGame();
+            }
+            setTurn();
+        } catch (RuntimeException e) {
+            shootWarning(""+e);
+        }
+    }
+    
+    private void toMove2OutOf3(String location) {
+        try {
+            games.get(idGame).setBox(location, turn);
+            if (games.get(idGame).doesGameEnd()) {
+                int winner = games.get(idGame).getWinner();
+                
+                if (winner != 0) { // Puntua si no es empate
+                    players.get(winner).addOnePoint();
+                }
+                
+                if (idGame == 2 && (players.get(1).getPunctuation().equals("2") || players.get(2).getPunctuation().equals("2"))) {
+                    toEndGame();
+                }
+                
+                if (idGame == 3) {
+                    toEndGame();
+                }
+                
+                idGame += 1;
+            }
+            setTurn();
+        } catch (RuntimeException e) {
+            shootWarning(""+e);
+        }
+    }
+    
+    private void toMoveDeathMatch(String location) {
+        try {
+            games.get(idGame).setBox(location, turn);
+            if(games.get(idGame).doesGameEnd()) {
+                int winner = games.get(idGame).getWinner();
+                
+                if (winner == 0) {
+                    games.add(new Game());
+                    idGame += 1;
+                } else {
+                    players.get(winner).addOnePoint();
+                    toEndGame();
+                }
+                
+                if (idGame > 10) {
+                    toEndGame();
+                }
+            }
+            setTurn();
+        } catch (RuntimeException e) {
+            shootWarning(""+e);
+        }
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BoardPanel;
     private javax.swing.JButton ButtonBox11;
@@ -437,14 +598,15 @@ public class GameView extends javax.swing.JFrame {
     private javax.swing.JButton ButtonReturnToMenu;
     private javax.swing.JPanel DataPanel;
     private javax.swing.JPanel GamePanel;
-    private javax.swing.JLabel LabelGameTurnOf;
     private javax.swing.JLabel LabelPlayer1Name_1;
     private javax.swing.JLabel LabelPlayer1Name_2;
     private javax.swing.JLabel LabelPlayer1Points;
     private javax.swing.JLabel LabelPlayer2Name_1;
     private javax.swing.JLabel LabelPlayer2Name_2;
     private javax.swing.JLabel LabelPlayer2Points;
+    private javax.swing.JLabel LabelTurnOf;
     private javax.swing.JLabel LabelTypeOfGame;
+    private javax.swing.JLabel LabelWarning;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

@@ -20,7 +20,7 @@ public class Game {
         this.winner = 0;
     }
     
-    public String getState() {
+    private String getState() {
         return board.getState();
     }
     
@@ -30,8 +30,7 @@ public class Game {
     
     public void setBox(String location, int id) {
         boolean value = id == 1;
-        board.setBox(location, value); // Manejar esta excepcion en la vista para imprimir directamente el mensaje
-        doesGameEnd();
+        board.setBox(location, value);
     }
     
     public boolean doesGameEnd() {

@@ -42,7 +42,7 @@ public class Match {
     public void toPlay(String typeOfGame, boolean VSMachine) {
         switch (typeOfGame) {
             case "Unique" -> uniqueGame(VSMachine);
-            case "2 of 3" -> atLeastTwoGame(VSMachine);
+            case "2 out of 3" -> atLeastTwoGame(VSMachine);
             case "DeathMatch" -> deathMatchGame(VSMachine);
             default -> {
                 throw new IllegalArgumentException("That type of game does not exist");

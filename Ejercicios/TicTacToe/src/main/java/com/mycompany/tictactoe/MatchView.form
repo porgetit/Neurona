@@ -14,9 +14,6 @@
       <Color blue="ff" green="ff" red="ff" type="rgb"/>
     </Property>
     <Property name="focusable" type="boolean" value="false"/>
-    <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="[630, 380]"/>
-    </Property>
     <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
       <Dimension value="[630, 380]"/>
     </Property>
@@ -97,7 +94,7 @@
                               <Component id="ButtonEndGame" min="-2" max="-2" attributes="0"/>
                               <Component id="BoardPanel" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="0" pref="55" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="103" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -120,7 +117,7 @@
                       <Component id="ButtonReturnToMenu" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="ButtonResetGame" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="25" max="32767" attributes="0"/>
+                  <EmptySpace pref="30" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -164,10 +161,15 @@
                                   </Group>
                               </Group>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="LabelGameTurnOf" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="LabelTurnOf" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="LabelWarning" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
@@ -198,9 +200,11 @@
                       <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="LabelGameTurnOf" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="LabelTurnOf" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="LabelWarning" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -252,12 +256,17 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel2">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Time for:"/>
+                <Property name="text" type="java.lang.String" value="Turn Of:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="LabelGameTurnOf">
+            <Component class="javax.swing.JLabel" name="LabelTurnOf">
               <Properties>
                 <Property name="text" type="java.lang.String" value="&lt;&lt;Game.TurnOf&gt;&gt;"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="LabelWarning">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="&lt;&lt;Warning&gt;&gt;"/>
               </Properties>
             </Component>
           </SubComponents>
@@ -477,11 +486,17 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Return to Menu"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonReturnToMenuActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="ButtonResetGame">
           <Properties>
             <Property name="text" type="java.lang.String" value="Reset Game"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonResetGameActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
