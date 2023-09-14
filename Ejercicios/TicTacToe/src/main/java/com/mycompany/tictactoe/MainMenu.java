@@ -17,8 +17,8 @@ public class MainMenu extends javax.swing.JFrame {
      * Creates new form MainView
      */
     public MainMenu() {
-        this.isSinglePlayer = true;
         initComponents();
+        this.isSinglePlayer = true;
     }
 
     /**

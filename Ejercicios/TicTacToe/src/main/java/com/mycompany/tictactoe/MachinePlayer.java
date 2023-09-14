@@ -4,10 +4,16 @@
  */
 package com.mycompany.tictactoe;
 
+import java.util.List;
+import java.util.Random;
+
 /**
  *
  * @author xdpor
  */
-public class MachinePlayer {
-    
+public class MachinePlayer {    
+    public static String toPlay(List<String> freeLocations) { // Return location for MatchView.toMove()
+        int location = new Random().nextInt(freeLocations.size());
+        return freeLocations.get(location);
+    }
 }

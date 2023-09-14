@@ -5,6 +5,7 @@
 
 package com.mycompany.tictactoe;
 
+import java.util.List;
 import java.util.regex.Pattern;
 
 /**
@@ -46,5 +47,9 @@ public class Game {
         }
         
         return false;     
+    }
+    
+    public List<String> freeBoxes() {
+        return board.freeBoxes();
     }
 }

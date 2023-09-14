@@ -27,9 +27,12 @@ public class MatchView extends javax.swing.JFrame {
      * @param players
      */
     public MatchView(String typeOfGame, boolean isVSMachine, Map<Integer, Player> players) {
+        initComponents();
         this.typeOfGame = typeOfGame;
         this.isVSMachine = isVSMachine;
         this.players = players;
+        this.turn = 1;
+        this.idGame = 0;
         this.games = new ArrayList<>() {{
             switch (typeOfGame) {
                 case "unique" -> {
@@ -48,8 +51,6 @@ public class MatchView extends javax.swing.JFrame {
                 }
             }
         }};
-        this.turn = 1;
-        this.idGame = 1;
         
         LabelPlayer1Name_1.setText(players.get(1).getName());
         LabelPlayer2Name_1.setText(players.get(2).getName());
@@ -58,7 +59,6 @@ public class MatchView extends javax.swing.JFrame {
         shootWarning("");
         setPoints();
         setTurn();
-        initComponents();
     }
 
     /**
@@ -205,7 +205,6 @@ public class MatchView extends javax.swing.JFrame {
                 .addGap(14, 14, 14))
         );
 
-        ButtonBox11.setText("11");
         ButtonBox11.setContentAreaFilled(false);
         ButtonBox11.setFocusable(false);
         ButtonBox11.setPreferredSize(new java.awt.Dimension(60, 60));
@@ -215,7 +214,6 @@ public class MatchView extends javax.swing.JFrame {
             }
         });
 
-        ButtonBox12.setText("12");
         ButtonBox12.setContentAreaFilled(false);
         ButtonBox12.setFocusable(false);
         ButtonBox12.setPreferredSize(new java.awt.Dimension(60, 60));
@@ -225,7 +223,6 @@ public class MatchView extends javax.swing.JFrame {
             }
         });
 
-        ButtonBox13.setText("13");
         ButtonBox13.setContentAreaFilled(false);
         ButtonBox13.setFocusable(false);
         ButtonBox13.setPreferredSize(new java.awt.Dimension(60, 60));
@@ -235,7 +232,6 @@ public class MatchView extends javax.swing.JFrame {
             }
         });
 
-        ButtonBox21.setText("21");
         ButtonBox21.setContentAreaFilled(false);
         ButtonBox21.setFocusable(false);
         ButtonBox21.setPreferredSize(new java.awt.Dimension(60, 60));
@@ -245,7 +241,6 @@ public class MatchView extends javax.swing.JFrame {
             }
         });
 
-        ButtonBox22.setText("22");
         ButtonBox22.setContentAreaFilled(false);
         ButtonBox22.setFocusable(false);
         ButtonBox22.setPreferredSize(new java.awt.Dimension(60, 60));
@@ -255,7 +250,6 @@ public class MatchView extends javax.swing.JFrame {
             }
         });
 
-        ButtonBox23.setText("23");
         ButtonBox23.setContentAreaFilled(false);
         ButtonBox23.setFocusable(false);
         ButtonBox23.setPreferredSize(new java.awt.Dimension(60, 60));
@@ -265,7 +259,6 @@ public class MatchView extends javax.swing.JFrame {
             }
         });
 
-        ButtonBox33.setText("33");
         ButtonBox33.setContentAreaFilled(false);
         ButtonBox33.setFocusable(false);
         ButtonBox33.setPreferredSize(new java.awt.Dimension(60, 60));
@@ -275,7 +268,6 @@ public class MatchView extends javax.swing.JFrame {
             }
         });
 
-        ButtonBox32.setText("32");
         ButtonBox32.setContentAreaFilled(false);
         ButtonBox32.setFocusable(false);
         ButtonBox32.setPreferredSize(new java.awt.Dimension(60, 60));
@@ -285,7 +277,6 @@ public class MatchView extends javax.swing.JFrame {
             }
         });
 
-        ButtonBox31.setText("31");
         ButtonBox31.setContentAreaFilled(false);
         ButtonBox31.setFocusable(false);
         ButtonBox31.setPreferredSize(new java.awt.Dimension(60, 60));
@@ -438,43 +429,52 @@ public class MatchView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ButtonBox11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonBox11ActionPerformed
+        ButtonBox11.setText(this.turn == 1 ? "X" : "O");
         toMove("11");
     }//GEN-LAST:event_ButtonBox11ActionPerformed
 
     private void ButtonBox12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonBox12ActionPerformed
+        ButtonBox12.setText(this.turn == 1 ? "X" : "O");
         toMove("12");
     }//GEN-LAST:event_ButtonBox12ActionPerformed
 
     private void ButtonBox13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonBox13ActionPerformed
+        ButtonBox13.setText(this.turn == 1 ? "X" : "O");
         toMove("13");
     }//GEN-LAST:event_ButtonBox13ActionPerformed
 
     private void ButtonBox21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonBox21ActionPerformed
+        ButtonBox21.setText(this.turn == 1 ? "X" : "O");
         toMove("21");
     }//GEN-LAST:event_ButtonBox21ActionPerformed
 
     private void ButtonBox22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonBox22ActionPerformed
+        ButtonBox22.setText(this.turn == 1 ? "X" : "O");
         toMove("22");
     }//GEN-LAST:event_ButtonBox22ActionPerformed
 
     private void ButtonBox23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonBox23ActionPerformed
+        ButtonBox23.setText(this.turn == 1 ? "X" : "O");
         toMove("23");
     }//GEN-LAST:event_ButtonBox23ActionPerformed
 
     private void ButtonBox31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonBox31ActionPerformed
+        ButtonBox31.setText(this.turn == 1 ? "X" : "O");
         toMove("31");
     }//GEN-LAST:event_ButtonBox31ActionPerformed
 
     private void ButtonBox32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonBox32ActionPerformed
+        ButtonBox32.setText(this.turn == 1 ? "X" : "O");
         toMove("32");
     }//GEN-LAST:event_ButtonBox32ActionPerformed
 
     private void ButtonBox33ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonBox33ActionPerformed
+        ButtonBox33.setText(this.turn == 1 ? "X" : "O");
         toMove("33");
     }//GEN-LAST:event_ButtonBox33ActionPerformed
 
     private void ButtonEndGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonEndGameActionPerformed
-        toEndGame();
+        toEndMatch();
     }//GEN-LAST:event_ButtonEndGameActionPerformed
 
     private void ButtonReturnToMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonReturnToMenuActionPerformed
@@ -487,11 +487,38 @@ public class MatchView extends javax.swing.JFrame {
         new MatchView(typeOfGame, isVSMachine, players).setVisible(true);
     }//GEN-LAST:event_ButtonResetGameActionPerformed
     
-    private void shootWarning(String warning) {
-        LabelWarning.setText(warning);
+    private void toPressButton(String location) {
+        switch (location) {
+            case "11" -> ButtonBox11.doClick();
+            case "12" -> ButtonBox12.doClick();
+            case "13" -> ButtonBox13.doClick();
+            case "21" -> ButtonBox21.doClick();
+            case "22" -> ButtonBox22.doClick();
+            case "23" -> ButtonBox23.doClick();
+            case "31" -> ButtonBox31.doClick();
+            case "32" -> ButtonBox32.doClick();
+            case "33" -> ButtonBox33.doClick();
+        }
     }
     
-    private void toEndGame() {
+    private void toCleanBoard() {
+        ButtonBox11.setText("");
+        ButtonBox12.setText("");
+        ButtonBox13.setText("");
+        ButtonBox21.setText("");
+        ButtonBox22.setText("");
+        ButtonBox23.setText("");
+        ButtonBox31.setText("");
+        ButtonBox32.setText("");
+        ButtonBox33.setText("");
+    }
+    
+    private void shootWarning(String warning) {
+        LabelWarning.setText(warning);
+        System.out.println(warning);
+    }
+    
+    private void toEndMatch() {
         this.dispose();
         new EndGameView(players).setVisible(true);
     }
@@ -512,11 +539,19 @@ public class MatchView extends javax.swing.JFrame {
             case "2 out of 3" -> toMove2OutOf3(location);
             case "deathmatch" -> toMoveDeathMatch(location);
         }
+        setPoints();
     }
     
     private void toMoveUnique(String location) { // Method to move when it's a Unique Game Match
         try {
-            games.get(idGame).setBox(location, turn);
+            if (players.get(turn).getName().equals("Machine")) {
+                location = MachinePlayer.toPlay(games.get(idGame).freeBoxes());
+                toPressButton(location);
+                games.get(idGame).setBox(location, turn);
+            } else {
+                games.get(idGame).setBox(location, turn);
+            }            
+            
             if (games.get(idGame).doesGameEnd()) {
                 int winner = games.get(idGame).getWinner();
                 
@@ -524,7 +559,7 @@ public class MatchView extends javax.swing.JFrame {
                     players.get(winner).addOnePoint();
                 }
                 
-                toEndGame();
+                toEndMatch();
             }
             setTurn();
         } catch (RuntimeException e) {
@@ -534,7 +569,24 @@ public class MatchView extends javax.swing.JFrame {
     
     private void toMove2OutOf3(String location) {
         try {
-            games.get(idGame).setBox(location, turn);
+            if (players.get(turn).getName().equals("Machine")) {
+                location = MachinePlayer.toPlay(games.get(idGame).freeBoxes());
+                switch (location) {
+                    case "11" -> ButtonBox11.doClick();
+                    case "12" -> ButtonBox12.doClick();
+                    case "13" -> ButtonBox13.doClick();
+                    case "21" -> ButtonBox21.doClick();
+                    case "22" -> ButtonBox22.doClick();
+                    case "23" -> ButtonBox23.doClick();
+                    case "31" -> ButtonBox31.doClick();
+                    case "32" -> ButtonBox32.doClick();
+                    case "33" -> ButtonBox33.doClick();
+                }
+                games.get(idGame).setBox(location, turn);
+            } else {
+                games.get(idGame).setBox(location, turn);
+            } 
+            
             if (games.get(idGame).doesGameEnd()) {
                 int winner = games.get(idGame).getWinner();
                 
@@ -542,15 +594,16 @@ public class MatchView extends javax.swing.JFrame {
                     players.get(winner).addOnePoint();
                 }
                 
-                if (idGame == 2 && (players.get(1).getPunctuation().equals("2") || players.get(2).getPunctuation().equals("2"))) {
-                    toEndGame();
+                if (idGame == 1 && (players.get(1).getPunctuation().equals("2") || players.get(2).getPunctuation().equals("2"))) {
+                    toEndMatch();
                 }
                 
-                if (idGame == 3) {
-                    toEndGame();
+                if (idGame == 2) {
+                    toEndMatch();
                 }
                 
                 idGame += 1;
+                toCleanBoard();
             }
             setTurn();
         } catch (RuntimeException e) {
@@ -560,20 +613,38 @@ public class MatchView extends javax.swing.JFrame {
     
     private void toMoveDeathMatch(String location) {
         try {
-            games.get(idGame).setBox(location, turn);
+            if (players.get(turn).getName().equals("Machine")) {
+                location = MachinePlayer.toPlay(games.get(idGame).freeBoxes());
+                switch (location) {
+                    case "11" -> ButtonBox11.doClick();
+                    case "12" -> ButtonBox12.doClick();
+                    case "13" -> ButtonBox13.doClick();
+                    case "21" -> ButtonBox21.doClick();
+                    case "22" -> ButtonBox22.doClick();
+                    case "23" -> ButtonBox23.doClick();
+                    case "31" -> ButtonBox31.doClick();
+                    case "32" -> ButtonBox32.doClick();
+                    case "33" -> ButtonBox33.doClick();
+                }
+                games.get(idGame).setBox(location, turn);
+            } else {
+                games.get(idGame).setBox(location, turn);
+            } 
+            
             if(games.get(idGame).doesGameEnd()) {
                 int winner = games.get(idGame).getWinner();
                 
                 if (winner == 0) {
                     games.add(new Game());
                     idGame += 1;
+                    toCleanBoard();
                 } else {
                     players.get(winner).addOnePoint();
-                    toEndGame();
+                    toEndMatch();
                 }
                 
-                if (idGame > 10) {
-                    toEndGame();
+                if (idGame > 9) {
+                    toEndMatch();
                 }
             }
             setTurn();

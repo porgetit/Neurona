@@ -5,7 +5,9 @@
 
 package com.mycompany.tictactoe;
 
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -50,18 +52,18 @@ public class Board {
         setState();
     }
     
-    public Map<String, Box> freeBoxes() {
-        Map<String, Box> free = new LinkedHashMap<>(); // Free Boxes
+    public List<String> freeBoxes() {
+        List<String> frees = new ArrayList<>();
         
         for (Map.Entry<String, Box> entry : boxes.entrySet()) {
             String key = entry.getKey();
             Box box = entry.getValue();
             
             if (box.isFree()) {
-                free.put(key, box);
+                frees.add(key);
             }
         }
         
-        return free;
+        return frees;
     }
 }

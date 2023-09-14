@@ -29,6 +29,7 @@ public class Box {
         if (isFree()) {
             this.state = true;
             this.value = newValue;
+            return;
         }
         
         throw new RuntimeException("This box is occupied");

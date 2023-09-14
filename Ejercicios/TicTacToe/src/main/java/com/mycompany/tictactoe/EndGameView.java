@@ -18,6 +18,7 @@ public class EndGameView extends javax.swing.JFrame {
      * @param players
      */
     public EndGameView(Map<Integer, Player> players) {
+        initComponents();
         this.players = players;
         
         LabelPlayer1Name.setText(players.get(1).getName());
@@ -27,9 +28,11 @@ public class EndGameView extends javax.swing.JFrame {
         
         if (players.get(1).getPunctuation().equals(players.get(2).getPunctuation())) {
             LabelWinner.setText("Nobody");
-        } else if (players.get(1).getPunctuation() > players.get(2).getPunctuation()) // Comparar para elegir al ganador
-        
-        initComponents();
+        } else if (Integer.valueOf(players.get(1).getPunctuation()) > Integer.valueOf(players.get(2).getPunctuation())) {
+            LabelWinner.setText(players.get(1).getName());
+        } else {
+            LabelWinner.setText(players.get(2).getName());
+        }
     }
 
     /**

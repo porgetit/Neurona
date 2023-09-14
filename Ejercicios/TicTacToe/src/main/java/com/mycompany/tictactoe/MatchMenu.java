@@ -18,8 +18,8 @@ public class MatchMenu extends javax.swing.JFrame {
      * @param isVSMachine
      */
     public MatchMenu(boolean isVSMachine) {
-        this.isVSMachine = isVSMachine;
         initComponents();
+        this.isVSMachine = isVSMachine;
     }
 
     /**
