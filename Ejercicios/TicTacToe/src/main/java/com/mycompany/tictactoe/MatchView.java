@@ -7,6 +7,7 @@ package com.mycompany.tictactoe;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 /**
  *
@@ -487,18 +488,19 @@ public class MatchView extends javax.swing.JFrame {
         new MatchView(typeOfGame, isVSMachine, players).setVisible(true);
     }//GEN-LAST:event_ButtonResetGameActionPerformed
     
-    private void toPressButton(String location) {
+    private void toMarkButton(String location) {
         switch (location) {
-            case "11" -> ButtonBox11.doClick();
-            case "12" -> ButtonBox12.doClick();
-            case "13" -> ButtonBox13.doClick();
-            case "21" -> ButtonBox21.doClick();
-            case "22" -> ButtonBox22.doClick();
-            case "23" -> ButtonBox23.doClick();
-            case "31" -> ButtonBox31.doClick();
-            case "32" -> ButtonBox32.doClick();
-            case "33" -> ButtonBox33.doClick();
+            case "11" -> ButtonBox11.setText(this.turn == 1 ? "X" : "O");
+            case "12" -> ButtonBox12.setText(this.turn == 1 ? "X" : "O");
+            case "13" -> ButtonBox13.setText(this.turn == 1 ? "X" : "O");
+            case "21" -> ButtonBox21.setText(this.turn == 1 ? "X" : "O");
+            case "22" -> ButtonBox22.setText(this.turn == 1 ? "X" : "O");
+            case "23" -> ButtonBox23.setText(this.turn == 1 ? "X" : "O");
+            case "31" -> ButtonBox31.setText(this.turn == 1 ? "X" : "O");
+            case "32" -> ButtonBox32.setText(this.turn == 1 ? "X" : "O");
+            case "33" -> ButtonBox33.setText(this.turn == 1 ? "X" : "O");
         }
+        
     }
     
     private void toCleanBoard() {
@@ -545,6 +547,7 @@ public class MatchView extends javax.swing.JFrame {
     private void toMoveUnique(String location) { // Method to move when it's a Unique Game Match
         try {
             games.get(idGame).setBox(location, turn);
+            
             if (games.get(idGame).doesGameEnd()) {
                 int winner = games.get(idGame).getWinner();
                 
@@ -554,9 +557,26 @@ public class MatchView extends javax.swing.JFrame {
                 
                 toEndMatch();
             }
+            
             setTurn();
-            if (this.turn == 2) {
+            
+            if (this.turn == 2 && this.isVSMachine) {
+                String newLocation = games.get(idGame).freeBoxes().get(new Random().nextInt(games.get(idGame).freeBoxes().size())); // Esta linea selecciona un ubicacion libre aleatoriamente
+                games.get(idGame).setBox(newLocation, turn);
                 
+                toMarkButton(newLocation);
+                
+                if (games.get(idGame).doesGameEnd()) {
+                    int winner = games.get(idGame).getWinner();
+
+                    if (winner != 0) { // Puntua si no es empate
+                        players.get(winner).addOnePoint();
+                    }
+
+                    toEndMatch();
+                }
+                
+                setTurn();
             }
         } catch (RuntimeException e) {
             shootWarning(""+e);
@@ -566,6 +586,7 @@ public class MatchView extends javax.swing.JFrame {
     private void toMove2OutOf3(String location) {
         try {
             games.get(idGame).setBox(location, turn);
+            
             if (games.get(idGame).doesGameEnd()) {
                 int winner = games.get(idGame).getWinner();
                 
@@ -584,7 +605,36 @@ public class MatchView extends javax.swing.JFrame {
                 idGame += 1;
                 toCleanBoard();
             }
+            
             setTurn();
+            
+            if (this.turn == 2 && this.isVSMachine) {
+                String newLocation = games.get(idGame).freeBoxes().get(new Random().nextInt(games.get(idGame).freeBoxes().size())); // Esta linea selecciona un ubicacion libre aleatoriamente
+                games.get(idGame).setBox(newLocation, turn);
+                
+                toMarkButton(newLocation);
+                
+                if (games.get(idGame).doesGameEnd()) {
+                    int winner = games.get(idGame).getWinner();
+
+                    if (winner != 0) { // Puntua si no es empate
+                        players.get(winner).addOnePoint();
+                    }
+
+                    if (idGame == 1 && (players.get(1).getPunctuation().equals("2") || players.get(2).getPunctuation().equals("2"))) {
+                        toEndMatch();
+                    }
+
+                    if (idGame == 2) {
+                        toEndMatch();
+                    }
+
+                    idGame += 1;
+                    toCleanBoard();
+                }
+                
+                setTurn();
+            }
         } catch (RuntimeException e) {
             shootWarning(""+e);
         }
@@ -593,6 +643,7 @@ public class MatchView extends javax.swing.JFrame {
     private void toMoveDeathMatch(String location) {
         try {
             games.get(idGame).setBox(location, turn);
+            
             if(games.get(idGame).doesGameEnd()) {
                 int winner = games.get(idGame).getWinner();
                 
@@ -609,7 +660,34 @@ public class MatchView extends javax.swing.JFrame {
                     toEndMatch();
                 }
             }
+            
             setTurn();
+            
+            if (this.turn == 2 && this.isVSMachine) {
+                String newLocation = games.get(idGame).freeBoxes().get(new Random().nextInt(games.get(idGame).freeBoxes().size())); // Esta linea selecciona un ubicacion libre aleatoriamente
+                games.get(idGame).setBox(newLocation, turn);
+                
+                toMarkButton(newLocation);
+                
+                if(games.get(idGame).doesGameEnd()) {
+                    int winner = games.get(idGame).getWinner();
+
+                    if (winner == 0) {
+                        games.add(new Game());
+                        idGame += 1;
+                        toCleanBoard();
+                    } else {
+                        players.get(winner).addOnePoint();
+                        toEndMatch();
+                    }
+
+                    if (idGame > 9) {
+                        toEndMatch();
+                    }
+                }
+                
+                setTurn();
+            }
         } catch (RuntimeException e) {
             shootWarning(""+e);
         }
