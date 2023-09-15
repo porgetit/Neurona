@@ -31,7 +31,7 @@ public class MatchView extends javax.swing.JFrame {
         this.typeOfGame = typeOfGame;
         this.isVSMachine = isVSMachine;
         this.players = players;
-        this.turn = 1;
+        this.turn = 2;
         this.idGame = 0;
         this.games = new ArrayList<>() {{
             switch (typeOfGame) {
@@ -544,14 +544,7 @@ public class MatchView extends javax.swing.JFrame {
     
     private void toMoveUnique(String location) { // Method to move when it's a Unique Game Match
         try {
-            if (players.get(turn).getName().equals("Machine")) {
-                location = MachinePlayer.toPlay(games.get(idGame).freeBoxes());
-                toPressButton(location);
-                games.get(idGame).setBox(location, turn);
-            } else {
-                games.get(idGame).setBox(location, turn);
-            }            
-            
+            games.get(idGame).setBox(location, turn);
             if (games.get(idGame).doesGameEnd()) {
                 int winner = games.get(idGame).getWinner();
                 
@@ -562,6 +555,9 @@ public class MatchView extends javax.swing.JFrame {
                 toEndMatch();
             }
             setTurn();
+            if (this.turn == 2) {
+                
+            }
         } catch (RuntimeException e) {
             shootWarning(""+e);
         }
@@ -569,24 +565,7 @@ public class MatchView extends javax.swing.JFrame {
     
     private void toMove2OutOf3(String location) {
         try {
-            if (players.get(turn).getName().equals("Machine")) {
-                location = MachinePlayer.toPlay(games.get(idGame).freeBoxes());
-                switch (location) {
-                    case "11" -> ButtonBox11.doClick();
-                    case "12" -> ButtonBox12.doClick();
-                    case "13" -> ButtonBox13.doClick();
-                    case "21" -> ButtonBox21.doClick();
-                    case "22" -> ButtonBox22.doClick();
-                    case "23" -> ButtonBox23.doClick();
-                    case "31" -> ButtonBox31.doClick();
-                    case "32" -> ButtonBox32.doClick();
-                    case "33" -> ButtonBox33.doClick();
-                }
-                games.get(idGame).setBox(location, turn);
-            } else {
-                games.get(idGame).setBox(location, turn);
-            } 
-            
+            games.get(idGame).setBox(location, turn);
             if (games.get(idGame).doesGameEnd()) {
                 int winner = games.get(idGame).getWinner();
                 
@@ -613,24 +592,7 @@ public class MatchView extends javax.swing.JFrame {
     
     private void toMoveDeathMatch(String location) {
         try {
-            if (players.get(turn).getName().equals("Machine")) {
-                location = MachinePlayer.toPlay(games.get(idGame).freeBoxes());
-                switch (location) {
-                    case "11" -> ButtonBox11.doClick();
-                    case "12" -> ButtonBox12.doClick();
-                    case "13" -> ButtonBox13.doClick();
-                    case "21" -> ButtonBox21.doClick();
-                    case "22" -> ButtonBox22.doClick();
-                    case "23" -> ButtonBox23.doClick();
-                    case "31" -> ButtonBox31.doClick();
-                    case "32" -> ButtonBox32.doClick();
-                    case "33" -> ButtonBox33.doClick();
-                }
-                games.get(idGame).setBox(location, turn);
-            } else {
-                games.get(idGame).setBox(location, turn);
-            } 
-            
+            games.get(idGame).setBox(location, turn);
             if(games.get(idGame).doesGameEnd()) {
                 int winner = games.get(idGame).getWinner();
                 
