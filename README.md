@@ -22,5 +22,3 @@ Si tienes alguna pregunta sobre el contenido de este repositorio, sugerencias pa
 ¡Espero que encuentres útiles los ejemplos de código y las soluciones contenidas en este repositorio!
 
 **Nota:** Este repositorio es creado con fines educativos y para documentar mi progreso en el curso de Programación 4. Por favor, respeta los derechos de autor y la integridad académica al utilizar el contenido de este repositorio.
-
-**Última Actualización:** Agosto 23, 2023
