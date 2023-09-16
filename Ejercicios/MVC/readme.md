@@ -49,21 +49,47 @@ Este programa Java es una simple calculadora que puede sumar o restar dos númer
 - **Vista (`View`)**: Muestra una interfaz gráfica de usuario con campos de texto para ingresar números, botones para sumar y restar, y un campo de texto para mostrar el resultado.
 - **Controlador (`Controller`)**: Actúa como intermediario entre la Vista y el Modelo. Maneja las interacciones del usuario y actualiza el Modelo y la Vista en consecuencia.
 
-## Cómo Ejecutar el Programa
+# Cómo Ejecutar el Programa
 
-Si eres nuevo en Git y GitHub, sigue estos pasos para ejecutar el programa:
+Este programa se encuentra alojado en un repositorio de GitHub llamado "Progra 4" y se ubica en la siguiente ruta: [Ejercicios/MVC](https://github.com/porgetit/progra4/tree/main/Ejercicios/MVC).
 
-1. **Descarga el código**: Haz clic en el botón verde "Code" en la parte superior derecha de esta página y selecciona "Download ZIP". Descomprime el archivo descargado en tu computadora.
+Para ejecutar el programa y probarlo, sigue estos pasos:
 
-2. **Instala Java**: Asegúrate de tener Java instalado en tu computadora. Puedes descargarlo desde [el sitio web oficial de Oracle](https://www.oracle.com/java/technologies/javase-downloads.html).
+## Descargar el Repositorio Usando Git
 
-3. **Abre el proyecto**: Utiliza un entorno de desarrollo como Apache NetBeans o IntelliJ IDEA. Abre el proyecto descomprimido.
+1. Si no tienes Git instalado en tu computadora, descárgalo e instálalo desde [el sitio web oficial de Git](https://git-scm.com/).
 
-4. **Ejecuta la aplicación**: Busca el archivo `MVC.java` en el proyecto y ejecútalo. Esto abrirá la interfaz gráfica de la calculadora.
+2. Abre una terminal o línea de comandos en tu computadora.
 
-5. **Usa la aplicación**: Ingresa dos números en los campos de texto, luego haz clic en los botones "+" o "-" para realizar la operación correspondiente. El resultado se mostrará en el campo de texto de resultado.
+3. Navega hasta el directorio donde deseas descargar el repositorio. Puedes hacerlo utilizando el comando `cd` seguido de la ruta del directorio. Por ejemplo:
 
-¡Eso es todo! Has ejecutado con éxito un programa Java que sigue el patrón MVC.
+   ```shell
+   cd directorio/de/destino
+   ```
+
+4. Una vez en el directorio deseado, utiliza el siguiente comando para clonar el repositorio "Progra 4" que contiene el programa MVC:
+
+   ```shell
+   git clone https://github.com/porgetit/progra4.git
+   ```
+
+   Esto descargará el repositorio completo en tu computadora, incluyendo el programa MVC en la ubicación correcta.
+
+## Ejecutar el Programa en Apache NetBeans
+
+1. Abre Apache NetBeans, y selecciona "File" (Archivo) en la parte superior izquierda.
+
+2. Selecciona "Open Project" (Abrir proyecto) y navega hasta la ubicación donde descargaste el repositorio "Progra 4".
+
+3. Dentro del repositorio, navega a la carpeta "Ejercicios/MVC" y selecciona el archivo "MVC.java". Este es el punto de entrada del programa.
+
+4. Haz clic en "Open Project" (Abrir proyecto) en NetBeans.
+
+5. Ahora puedes ejecutar el programa seleccionando "Run" (Ejecutar) en la parte superior de NetBeans o haciendo clic derecho en "MVC.java" en el panel de proyectos y seleccionando "Run File" (Ejecutar archivo).
+
+El programa MVC se abrirá y podrás usar la interfaz gráfica para realizar sumas y restas de números.
+
+Siguiendo estos pasos, habrás descargado el repositorio, abierto el proyecto en NetBeans y ejecutado el programa MVC en tu computadora.
 
 ## Conclusión
 
