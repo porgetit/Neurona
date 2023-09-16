@@ -83,8 +83,6 @@ public void init() {
 
 El método `init()` es llamado después de la configuración inicial en el constructor de la clase `Controller`, y es responsable de iniciar la aplicación y mostrar la interfaz gráfica al usuario.
 
-Espero que esta explicación aclare el funcionamiento del método `init()` en la clase `Controller`.
-
 ## Creación de un Paquete "Controllers" en Apache NetBeans
 
 Para organizar tu proyecto MVC en Apache NetBeans y crear un paquete "Controllers" que contenga la clase `Controller`, sigue estos pasos:
