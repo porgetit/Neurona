@@ -62,6 +62,29 @@ public void actionPerformed(ActionEvent e) {
 
   - El resultado se muestra en el campo de texto de la Vista (`view.Result`) como una cadena de texto.
 
+## Bloque 4: Método `init()`
+
+```java
+public void init() {
+    view.setTitle("wenas pah!");
+    view.setLocationRelativeTo(null);
+    view.setVisible(true);
+}
+```
+
+- El método `init()` es una parte esencial de la clase `Controller`. Este método se utiliza para inicializar y mostrar la interfaz gráfica de usuario (UI) al usuario cuando se ejecuta el programa.
+
+- En este bloque:
+  - Se establece el título de la ventana de la Vista utilizando el método `setTitle()`. En este caso, se establece como "wenas pah!", pero puedes personalizarlo según tus necesidades.
+
+  - Se utiliza el método `setLocationRelativeTo(null)` para centrar la ventana de la Vista en la pantalla del usuario. Esto garantiza que la ventana aparezca en el centro de la pantalla.
+
+  - Finalmente, se hace visible la ventana de la Vista utilizando el método `setVisible(true)`. Esto permite que el usuario interactúe con la interfaz gráfica y realice las operaciones de suma y resta.
+
+El método `init()` es llamado después de la configuración inicial en el constructor de la clase `Controller`, y es responsable de iniciar la aplicación y mostrar la interfaz gráfica al usuario.
+
+Espero que esta explicación aclare el funcionamiento del método `init()` en la clase `Controller`.
+
 ## Creación de un Paquete "Controllers" en Apache NetBeans
 
 Para organizar tu proyecto MVC en Apache NetBeans y crear un paquete "Controllers" que contenga la clase `Controller`, sigue estos pasos:
