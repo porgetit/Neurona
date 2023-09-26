@@ -9,16 +9,31 @@ package com.mycompany.simuladorbancario;
  *
  * @author Kevin Esguerra Cardona
  */
-public class CuentaAhorro implements ProductoFinanciero {
+public class CuentaAhorro {
     private float saldo;
 
     public CuentaAhorro(float saldo) {
         this.saldo = saldo;
     }
+    
+    public float getSaldo() {
+        return this.saldo;
+    }
 
-    @Override
     public float calcularInteresMensual() {
         return saldo * 0.006f; // 0.6% de interés mensual
+    }
+    
+    public void realizarDeposito(float monto) {
+        this.saldo += monto;
+    }
+    
+    public void realizarRetiro(float monto) {
+        if (this.saldo >= monto) {
+            this.saldo -= monto;
+        } else {
+            throw new RuntimeException("Saldo insuficiente");
+        }
     }
 }
 

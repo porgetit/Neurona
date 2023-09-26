@@ -23,7 +23,7 @@ public class SimuladorBancario {
         // Agregar productos financieros a la cuenta
         ProductoFinanciero cuentaAhorro = new CuentaAhorro(1000);
         ProductoFinanciero cuentaCorriente = new CuentaCorriente(500);
-        ProductoFinanciero cdt = new CertificadoDepositoTermino(2000, 5);
+        ProductoFinanciero cdt = new CDT(2000, 5);
 
         cuenta.agregarProducto(cuentaAhorro);
         cuenta.agregarProducto(cuentaCorriente);
