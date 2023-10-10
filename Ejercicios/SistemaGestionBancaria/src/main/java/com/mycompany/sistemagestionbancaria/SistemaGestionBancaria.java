@@ -4,6 +4,8 @@
 
 package com.mycompany.sistemagestionbancaria;
 
+import drivers.FormularioNuevoClienteDriver;
+
 /**
  *
  * @author athirtro
@@ -11,6 +13,7 @@ package com.mycompany.sistemagestionbancaria;
 public class SistemaGestionBancaria {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        FormularioNuevoClienteDriver driver = new FormularioNuevoClienteDriver();
+        driver.init();
     }
 }

@@ -5,7 +5,7 @@
 
 package drivers;
 
-import views.forms.FormularioCliente;
+import views.forms.FormularioNuevoCliente;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -15,11 +15,11 @@ import models.Cliente;
  *
  * @author Kevin Esguerra Cardona
  */
-public class FormularioClienteDriver implements ActionListener{
-    FormularioCliente view;
+public class FormularioNuevoClienteDriver implements ActionListener{
+    FormularioNuevoCliente view;
 
-    public FormularioClienteDriver() {
-        view = new FormularioCliente();
+    public FormularioNuevoClienteDriver() {
+        view = new FormularioNuevoCliente();
         
         this.view.CampoNombre.addActionListener(this);
         this.view.CampoCedula.addActionListener(this);
@@ -49,6 +49,7 @@ public class FormularioClienteDriver implements ActionListener{
     
     public void init() {
         view.setTitle("Simulador Bancario");
+        this.view.setResizable(false);
         view.setLocationRelativeTo(null);
         view.setVisible(true);
     }    

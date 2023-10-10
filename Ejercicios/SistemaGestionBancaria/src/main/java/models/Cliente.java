@@ -46,6 +46,10 @@ public class Cliente {
     public CuentaAhorros getCuentaAhorros() {
         return cuentaAhorros;
     }
+
+    public Map<String, CDT> getCuentasCDT() {
+        return cuentasCDT;
+    }
     
     public CDT getCDT(String nombre) {
         if (!this.cuentasCDT.containsKey(nombre)) {
@@ -55,13 +59,18 @@ public class Cliente {
         return cuentasCDT.get(nombre);
     }
     
-    public void abrirCDT(String nombre, double saldoInicial, int porcentajeInteres, int plazo) {
+    public void abrirCDT(String nombre, double saldoInicial, double porcentajeInteres, int plazo) {
+        if (this.cuentasCDT.containsKey(nombre)) {
+            throw new RuntimeException("El nombre del CDT indicado ya está en uso. Por favor, use otro nombre.");
+        }
+        
+        this.cuentaCorriente.retirar(saldoInicial);
         this.cuentasCDT.put(nombre, new CDT(saldoInicial, porcentajeInteres, plazo));
     }
     
     public void cerrarCDT(String nombre) {
         if (!this.cuentasCDT.containsKey(nombre)) {
-            throw new RuntimeException("CDT no encontrado");
+            throw new RuntimeException("El nombre del CDT indicado no se encuentra en uso. Por favor, use otro nombre.");
         }
         
         this.cuentaCorriente.depositar(this.cuentasCDT.get(nombre).cerrar());
@@ -69,10 +78,10 @@ public class Cliente {
     }
     
     public void avanzarMeses(int cantidadMeses) {
-        for (int i = 0; i < cantidadMeses; i++) {
-            this.cuentaAhorros.avanzarMes();
+        List<String> paraBorrar = new ArrayList<>();
         
-            List<String> paraBorrar = new ArrayList<>();
+        for (int i = 0; i < cantidadMeses; i++) {
+            this.cuentaAhorros.avanzarMes();            
 
             cuentasCDT.entrySet().forEach(entry -> {
                 double saldo = entry.getValue().avanzarMes();
@@ -81,9 +90,11 @@ public class Cliente {
                     paraBorrar.add(entry.getKey());
                 }
             });
-
-            paraBorrar.forEach(this::cerrarCDT); 
-        }       
+        }
+        
+        paraBorrar.forEach(cdt -> {
+            this.cuentasCDT.remove(cdt);
+        }); 
     }
     
     public double getSaldo() {

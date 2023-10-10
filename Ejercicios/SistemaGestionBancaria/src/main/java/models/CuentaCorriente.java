@@ -22,7 +22,7 @@ public class CuentaCorriente{
     
     public void retirar(double monto) {
         if (this.saldo < monto) {
-            throw new RuntimeException("Saldo insuficiente");
+            throw new RuntimeException("Fondos insuficiente");
         }
         
         this.saldo -= monto;

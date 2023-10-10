@@ -55,6 +55,10 @@ public class MenuGestionCuentaCliente extends javax.swing.JFrame {
         CerrarCDT = new javax.swing.JButton();
         AvanzarMeses = new javax.swing.JButton();
         CantidadMeses = new javax.swing.JSpinner();
+        jLabel1 = new javax.swing.JLabel();
+        LabelValorSaldoCuentaCorriente = new javax.swing.JLabel();
+        LabelValorSaldoCuentaAhorros = new javax.swing.JLabel();
+        LabelValorSaldoTotal = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -121,6 +125,14 @@ public class MenuGestionCuentaCliente extends javax.swing.JFrame {
 
         CantidadMeses.setModel(new javax.swing.SpinnerNumberModel(1, 1, 12, 1));
 
+        jLabel1.setText("Seleccione la cantidad de meses para avanzar");
+
+        LabelValorSaldoCuentaCorriente.setText("jLabel2");
+
+        LabelValorSaldoCuentaAhorros.setText("jLabel3");
+
+        LabelValorSaldoTotal.setText("jLabel4");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -142,12 +154,13 @@ public class MenuGestionCuentaCliente extends javax.swing.JFrame {
                         .addComponent(jSeparator7))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(SubTitulo1)
-                                .addComponent(LabelSaldoCuentaCorriente)
-                                .addComponent(LabelSaldoCuentaAhorros, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(LabelSaldoTotal)
-                                .addComponent(jSeparator3))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(SubTitulo1)
+                                    .addComponent(LabelSaldoCuentaAhorros, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jSeparator3))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(LabelValorSaldoCuentaAhorros))
                             .addComponent(SubTitulo2)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(DepositarCuentaCorriente)
@@ -165,12 +178,23 @@ public class MenuGestionCuentaCliente extends javax.swing.JFrame {
                                 .addComponent(AbrirCDT)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(CerrarCDT))
-                            .addComponent(SubTitulo5)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(CantidadMeses, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(AvanzarMeses)))
-                        .addGap(0, 87, Short.MAX_VALUE)))
+                                .addComponent(AvanzarMeses))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(SubTitulo5)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel1))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(LabelSaldoCuentaCorriente)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(LabelValorSaldoCuentaCorriente))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(LabelSaldoTotal)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(LabelValorSaldoTotal)))
+                        .addGap(0, 21, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -187,13 +211,19 @@ public class MenuGestionCuentaCliente extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(SubTitulo1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(LabelSaldoCuentaCorriente)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(LabelSaldoCuentaCorriente)
+                    .addComponent(LabelValorSaldoCuentaCorriente))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(LabelSaldoCuentaAhorros)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(LabelSaldoCuentaAhorros)
+                    .addComponent(LabelValorSaldoCuentaAhorros))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(LabelSaldoTotal)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(LabelSaldoTotal)
+                    .addComponent(LabelValorSaldoTotal))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -226,7 +256,9 @@ public class MenuGestionCuentaCliente extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator9, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(SubTitulo5)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(SubTitulo5)
+                    .addComponent(jLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(AvanzarMeses)
@@ -276,15 +308,18 @@ public class MenuGestionCuentaCliente extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton AbrirCDT;
-    private javax.swing.JButton AvanzarMeses;
-    private javax.swing.JSpinner CantidadMeses;
+    public javax.swing.JButton AvanzarMeses;
+    public javax.swing.JSpinner CantidadMeses;
     public javax.swing.JButton CerrarCDT;
     public javax.swing.JButton DepositarCuentaAhorros;
     public javax.swing.JButton DepositarCuentaCorriente;
-    public javax.swing.JLabel LabelSaldoCuentaAhorros;
-    public javax.swing.JLabel LabelSaldoCuentaCorriente;
-    public javax.swing.JLabel LabelSaldoTotal;
+    private javax.swing.JLabel LabelSaldoCuentaAhorros;
+    private javax.swing.JLabel LabelSaldoCuentaCorriente;
+    private javax.swing.JLabel LabelSaldoTotal;
     public javax.swing.JLabel LabelSaludo;
+    public javax.swing.JLabel LabelValorSaldoCuentaAhorros;
+    public javax.swing.JLabel LabelValorSaldoCuentaCorriente;
+    public javax.swing.JLabel LabelValorSaldoTotal;
     public javax.swing.JButton ListaCDT;
     public javax.swing.JButton RetirarCuentaAhorros;
     public javax.swing.JButton RetirarCuentaCorriente;
@@ -294,6 +329,7 @@ public class MenuGestionCuentaCliente extends javax.swing.JFrame {
     private javax.swing.JLabel SubTitulo4;
     private javax.swing.JLabel SubTitulo5;
     private javax.swing.JLabel Title;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;

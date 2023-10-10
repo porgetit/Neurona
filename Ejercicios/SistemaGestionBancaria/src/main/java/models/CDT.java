@@ -11,12 +11,12 @@ package models;
  */
 public class CDT {
     private final double saldo;
-    private final int porcentajeInteres;
+    private final double porcentajeInteres;
     private double interesAcumulado;
     private final int plazoTermino;
     private int mesesTranscurridos;
 
-    public CDT(double inicial, int porcentajeInteres, int plazo) {
+    public CDT(double inicial, double porcentajeInteres, int plazo) {
         this.saldo = inicial;
         this.porcentajeInteres = porcentajeInteres;
         this.interesAcumulado = 0;
