@@ -80,10 +80,9 @@ public class Vuelo extends javax.swing.JFrame {
         Button50 = new javax.swing.JButton();
         Button11 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
-        MenuReservas = new javax.swing.JMenu();
-        Consultar = new javax.swing.JMenuItem();
-        MenuVuelo = new javax.swing.JMenu();
-        ConsultarVuelo = new javax.swing.JMenuItem();
+        MenuConsultas = new javax.swing.JMenu();
+        InfoReservas = new javax.swing.JMenuItem();
+        InfoVuelo = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -363,7 +362,7 @@ public class Vuelo extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(76, 76, 76)
+                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -469,7 +468,7 @@ public class Vuelo extends javax.swing.JFrame {
                                         .addComponent(Button19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(Button20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
-                .addContainerGap(93, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -571,19 +570,15 @@ public class Vuelo extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        MenuReservas.setText("Reservas");
+        MenuConsultas.setText("Consultas");
 
-        Consultar.setText("Consultar");
-        MenuReservas.add(Consultar);
+        InfoReservas.setText("Información de Reservas");
+        MenuConsultas.add(InfoReservas);
 
-        jMenuBar1.add(MenuReservas);
+        InfoVuelo.setText("Información del Vuelo");
+        MenuConsultas.add(InfoVuelo);
 
-        MenuVuelo.setText("Vuelo");
-
-        ConsultarVuelo.setText("Consultar Información del Vuelo");
-        MenuVuelo.add(ConsultarVuelo);
-
-        jMenuBar1.add(MenuVuelo);
+        jMenuBar1.add(MenuConsultas);
 
         setJMenuBar(jMenuBar1);
 
@@ -698,10 +693,9 @@ public class Vuelo extends javax.swing.JFrame {
     public javax.swing.JButton Button7;
     public javax.swing.JButton Button8;
     public javax.swing.JButton Button9;
-    public javax.swing.JMenuItem Consultar;
-    public javax.swing.JMenuItem ConsultarVuelo;
-    private javax.swing.JMenu MenuReservas;
-    private javax.swing.JMenu MenuVuelo;
+    public javax.swing.JMenuItem InfoReservas;
+    public javax.swing.JMenuItem InfoVuelo;
+    public javax.swing.JMenu MenuConsultas;
     private javax.swing.JPanel Opciones;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenuBar jMenuBar1;
