@@ -3,17 +3,17 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 
-package com.mycompany.estrategia;
+package Modelos;
 
 /**
  *
  * @author Kevin Esguerra Cardona
  */
-public class Suma implements ICalculadora{
+public class Cociente implements ICalculadora{
 
     @Override
     public double operacion(double a, double b) {
-        return a + b;
+        return a / b;
     }
     
 }

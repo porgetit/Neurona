@@ -4,6 +4,8 @@
 
 package com.mycompany.estrategia;
 
+import Controladores.CtrlVistaCalculadora;
+
 /**
  *
  * @author xdpor
@@ -11,8 +13,7 @@ package com.mycompany.estrategia;
 public class Estrategia {
 
     public static void main(String[] args) {
-        Contexto calculadora = new Contexto();
-        System.out.println(calculadora.operacion(3, 4, "+"));
-        System.out.println(calculadora.operacion(5, 6, "*"));
+        CtrlVistaCalculadora driver = new CtrlVistaCalculadora();
+        driver.init();
     }
 }

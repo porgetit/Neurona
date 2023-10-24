@@ -6,7 +6,8 @@ package com.mycompany.adaptador;
 
 /**
  *
- * @author xdpor
+ * @author Kevin Esguerra Cardona
+ * 
  */
 public class Adaptador {
 
