@@ -4,6 +4,7 @@
 
 package com.mycompany.sistemareserva;
 
+import controladores.CtrlVuelo;
 import java.io.FileNotFoundException;
 
 /**
@@ -13,6 +14,7 @@ import java.io.FileNotFoundException;
 public class SistemaReserva {
 
     public static void main(String[] args) throws FileNotFoundException {
-        
+        CtrlVuelo inicio = new CtrlVuelo();
+        inicio.init();
     }
 }

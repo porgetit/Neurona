@@ -48,4 +48,8 @@ public class Asiento extends Pasajero {
     public void setNombre(String Nombre) {
         this.Nombre = Nombre;
     }    
+
+    public boolean esOcupado() {
+        return !(NUIP.equals("") || Nombre.equals(""));
+    }
 }

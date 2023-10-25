@@ -20,15 +20,14 @@ import java.util.logging.Logger;
 public class Vuelo {
     private final LocalTime HoraSalida;
     private LocalTime HoraLlegada;
-    private String IdVuelo;
+    private final String IdVuelo;
     private final List<Asiento> Asientos;
 
     public Vuelo() {
         this.HoraSalida = LocalTime.of(new Random().nextInt(1,25), new Random().nextInt(1, 61));
         this.HoraLlegada = HoraSalida.plusHours(new Random().nextInt(1,25));
-        this.HoraLlegada = HoraLlegada.plusMinutes(new Random().nextInt(1, 61));
         
-        this.IdVuelo = "VV-" + (new Random()).nextInt(100, 1000);
+        this.IdVuelo = "VT-" + (new Random()).nextInt(100, 1000);
         
         this.Asientos = new ArrayList<>() {{
             for (int i = 0; i < 8; i++) {
@@ -71,6 +70,79 @@ public class Vuelo {
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Vuelo.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    
+    public String getMatricula() {
+        return IdVuelo;
+    }
+    
+    public LocalTime getHoraSalida() {
+        return HoraSalida;
+    }
+    
+    public LocalTime getHoraLlegada() {
+        return HoraLlegada;
+    }
+    
+    
+    public String getOcupacionPorcentaje() {
+        int ocupados = 0;
+        
+        for (Asiento asiento : Asientos) {
+            ocupados += asiento.esOcupado() ? 1 : 0;
+        }
+        
+        return String.valueOf(ocupados * 100 / Asientos.size());
+    }
+    
+    public String getOcupacion() {
+        int ocupados = 0;
+        
+        for (Asiento asiento : Asientos) {
+            ocupados += asiento.esOcupado() ? 1 : 0;
+        }
+        
+        return String.valueOf(ocupados);
+    }
+    
+    public String getOcupacionPorcentajeEjecutiva() {
+        int ocupados = 0;
+        
+        for (Asiento asiento : Asientos) {
+            ocupados += asiento.esOcupado() && asiento.getClase().equals("Ejecutiva") ? 1 : 0;
+        }
+        
+        return String.valueOf(ocupados * 100 / 8);
+    }
+    
+    public String getOcupacionEjecutiva() {
+        int ocupados = 0;
+        
+        for (Asiento asiento : Asientos) {
+            ocupados += asiento.esOcupado() && asiento.getClase().equals("Ejecutiva") ? 1 : 0;
+        }
+        
+        return String.valueOf(ocupados);
+    }
+    
+    public String getOcupacionPorcentajeEconomica() {
+        int ocupados = 0;
+        
+        for (Asiento asiento : Asientos) {
+            ocupados += asiento.esOcupado() && asiento.getClase().equals("Economica") ? 1 : 0;
+        }
+        
+        return String.valueOf(ocupados * 100 / 42);
+    }
+    
+    public String getOcupacionEconomica() {
+        int ocupados = 0;
+        
+        for (Asiento asiento : Asientos) {
+            ocupados += asiento.esOcupado() && asiento.getClase().equals("Economica") ? 1 : 0;
+        }
+        
+        return String.valueOf(ocupados);
     }
     
 }
