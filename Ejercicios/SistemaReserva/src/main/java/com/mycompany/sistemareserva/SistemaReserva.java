@@ -6,6 +6,7 @@ package com.mycompany.sistemareserva;
 
 import controladores.CtrlVuelo;
 import java.io.FileNotFoundException;
+import modelos.Vuelo;
 
 /**
  *
@@ -14,7 +15,7 @@ import java.io.FileNotFoundException;
 public class SistemaReserva {
 
     public static void main(String[] args) throws FileNotFoundException {
-        CtrlVuelo inicio = new CtrlVuelo();
+        CtrlVuelo inicio = new CtrlVuelo(new Vuelo());
         inicio.init();
     }
 }

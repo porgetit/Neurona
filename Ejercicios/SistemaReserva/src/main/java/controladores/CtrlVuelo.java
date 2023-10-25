@@ -7,6 +7,9 @@ package controladores;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JButton;
 import modelos.Vuelo;
 import vistas.ViewVuelo;
 
@@ -15,75 +18,99 @@ import vistas.ViewVuelo;
  * @author Kevin Esguerra Cardona
  */
 public class CtrlVuelo implements ActionListener {
-    ViewVuelo vista;
-    Vuelo vuelo;
+    private ViewVuelo vista;
+    private Vuelo vuelo;
+    private final List<JButton> Botones;
     
-    public CtrlVuelo() {
+    public CtrlVuelo(Vuelo vuelo) {
         vista = new ViewVuelo();
-        vuelo = new Vuelo();
+        this.vuelo = vuelo;
         
         
         vista.InfoReservas.addActionListener(this);
-        vista.Button1.addActionListener(this);
-        vista.Button2.addActionListener(this);
-        vista.Button3.addActionListener(this);
-        vista.Button4.addActionListener(this);
-        vista.Button5.addActionListener(this);
-        vista.Button6.addActionListener(this);
-        vista.Button7.addActionListener(this);
-        vista.Button8.addActionListener(this);
-        vista.Button9.addActionListener(this);
-        vista.Button10.addActionListener(this);
-        vista.Button11.addActionListener(this);
-        vista.Button12.addActionListener(this);
-        vista.Button13.addActionListener(this);
-        vista.Button14.addActionListener(this);
-        vista.Button15.addActionListener(this);
-        vista.Button16.addActionListener(this);
-        vista.Button17.addActionListener(this);
-        vista.Button18.addActionListener(this);
-        vista.Button19.addActionListener(this);
-        vista.Button20.addActionListener(this);
-        vista.Button21.addActionListener(this);
-        vista.Button22.addActionListener(this);
-        vista.Button23.addActionListener(this);
-        vista.Button24.addActionListener(this);
-        vista.Button25.addActionListener(this);
-        vista.Button26.addActionListener(this);
-        vista.Button27.addActionListener(this);
-        vista.Button28.addActionListener(this);
-        vista.Button29.addActionListener(this);
-        vista.Button30.addActionListener(this);
-        vista.Button31.addActionListener(this);
-        vista.Button32.addActionListener(this);
-        vista.Button33.addActionListener(this);
-        vista.Button34.addActionListener(this);
-        vista.Button35.addActionListener(this);
-        vista.Button36.addActionListener(this);
-        vista.Button37.addActionListener(this);
-        vista.Button38.addActionListener(this);
-        vista.Button39.addActionListener(this);
-        vista.Button40.addActionListener(this);
-        vista.Button41.addActionListener(this);
-        vista.Button42.addActionListener(this);
-        vista.Button43.addActionListener(this);
-        vista.Button44.addActionListener(this);
-        vista.Button45.addActionListener(this);
-        vista.Button46.addActionListener(this);
-        vista.Button47.addActionListener(this);
-        vista.Button48.addActionListener(this);
-        vista.Button49.addActionListener(this);
-        vista.Button50.addActionListener(this);
-
+        
+        Botones = new ArrayList<>() {{
+            add(vista.Button1);
+            add(vista.Button2);
+            add(vista.Button3);
+            add(vista.Button4);
+            add(vista.Button5);
+            add(vista.Button6);
+            add(vista.Button7);
+            add(vista.Button8);
+            add(vista.Button9);
+            add(vista.Button10);
+            add(vista.Button11);
+            add(vista.Button12);
+            add(vista.Button13);
+            add(vista.Button14);
+            add(vista.Button15);
+            add(vista.Button16);
+            add(vista.Button17);
+            add(vista.Button18);
+            add(vista.Button19);
+            add(vista.Button20);
+            add(vista.Button21);
+            add(vista.Button22);
+            add(vista.Button23);
+            add(vista.Button24);
+            add(vista.Button25);
+            add(vista.Button26);
+            add(vista.Button27);
+            add(vista.Button28);
+            add(vista.Button29);
+            add(vista.Button30);
+            add(vista.Button31);
+            add(vista.Button32);
+            add(vista.Button33);
+            add(vista.Button34);
+            add(vista.Button35);
+            add(vista.Button36);
+            add(vista.Button37);
+            add(vista.Button38);
+            add(vista.Button39);
+            add(vista.Button40);
+            add(vista.Button41);
+            add(vista.Button42);
+            add(vista.Button43);
+            add(vista.Button44);
+            add(vista.Button45);
+            add(vista.Button46);
+            add(vista.Button47);
+            add(vista.Button48);
+            add(vista.Button49);
+            add(vista.Button50);
+        }};
+        
+        Botones.forEach(boton -> boton.addActionListener(this));
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        Object event = e.getSource();
         
+        if (event == vista.InfoReservas) {
+            this.vista.dispose();
+            new CtrlConsultarReservas(vuelo).init();
+        } else if (Botones.contains((JButton) event)) {
+            int id = -1;
+            
+            for (JButton boton : Botones) {
+                if ((JButton) event == boton) {
+                    id = Integer.parseInt(boton.getText()) - 1;
+                }
+            }
+            
+            if (id == -1) {
+                throw new RuntimeException("Error al seleccionar un boton");
+            }
+            
+            new CtrlReservar(vuelo, id);
+        }        
     }
     
     
-    
+    // Inicializar el color de los botones
     public void init() {
         vista.setTitle("Viajes Tur S.A.S");
         vista.setResizable(false);
