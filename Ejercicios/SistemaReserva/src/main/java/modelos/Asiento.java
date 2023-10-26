@@ -52,4 +52,9 @@ public class Asiento extends Pasajero {
     public boolean esOcupado() {
         return !(NUIP.equals("") || Nombre.equals(""));
     }
+    
+    public void liberar() {
+        this.NUIP = "";
+        this.Nombre = "";
+    }
 }

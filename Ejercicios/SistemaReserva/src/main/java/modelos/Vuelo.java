@@ -6,6 +6,7 @@
 package modelos;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -64,12 +65,36 @@ public class Vuelo {
         buscarAsiento(IdAsiento).setNombre(Nombre);
     }
     
+    public int proxAsientoLibre(String clase) {
+        int index = -1;
+        
+        for (int i = 0; i < Asientos.size(); i++) {
+            Asiento asiento = Asientos.get(i);
+            if (!asiento.esOcupado() && asiento.getClase().equals(clase)) {
+                index = i;
+                break;
+            }
+        }
+        
+        if (index == -1) {
+            for (int i = 0; i < Asientos.size(); i++) {
+                Asiento asiento = Asientos.get(i);
+                if (!asiento.esOcupado()) {
+                    index = i;
+                    break;
+                }
+            }
+        }
+        
+        return index;
+    }
+    
     public void desocuparAsiento(int IdAsiento) {
         buscarAsiento(IdAsiento).setNUIP("");
         buscarAsiento(IdAsiento).setNombre("");
     }
     
-    public void generarBoleto(int IdAsiento) {
+    public void generarBoleto(int IdAsiento) throws IOException {
         try {
             Boleto.generarBoleto(IdVuelo, HoraSalida, HoraLlegada, IdAsiento, Asientos.get(IdAsiento));
         } catch (FileNotFoundException ex) {

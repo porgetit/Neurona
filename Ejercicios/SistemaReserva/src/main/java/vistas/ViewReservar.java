@@ -26,6 +26,7 @@ public class ViewReservar extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
@@ -55,7 +56,7 @@ public class ViewReservar extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 376, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 341, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -74,9 +75,11 @@ public class ViewReservar extends javax.swing.JFrame {
         LabelNombre.setLabelFor(CampoNombre);
         LabelNombre.setText("Nombre :");
 
+        buttonGroup1.add(CheckClaseEco);
         CheckClaseEco.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         CheckClaseEco.setText("Económica");
 
+        buttonGroup1.add(CheckClaseEje);
         CheckClaseEje.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         CheckClaseEje.setText("Ejecutiva");
 
@@ -104,7 +107,7 @@ public class ViewReservar extends javax.swing.JFrame {
                         .addComponent(CheckClaseEco)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(CheckClaseEje)
-                        .addGap(0, 74, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -260,6 +263,7 @@ public class ViewReservar extends javax.swing.JFrame {
     private javax.swing.JLabel LabelNombre;
     public javax.swing.JButton Reservar;
     public javax.swing.JTextArea Respuesta;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

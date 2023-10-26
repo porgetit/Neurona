@@ -10,7 +10,10 @@ import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.List;
 import com.itextpdf.layout.element.Paragraph;
+import java.awt.Desktop;
+import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.time.LocalTime;
 
 
@@ -19,7 +22,7 @@ import java.time.LocalTime;
  * @author Kevin Esguerra Cardona
  */
 public class Boleto {
-    public static void generarBoleto(String IdVuelo, LocalTime horaSalida, LocalTime horaLlegada, int asiento, Asiento data) throws FileNotFoundException {
+    public static void generarBoleto(String IdVuelo, LocalTime horaSalida, LocalTime horaLlegada, int asiento, Asiento data) throws FileNotFoundException, IOException {
         // Creando un PdfWriter
         String ruta = "boleto_" + data.getNombre() + "_" + data.getNUIP() + ".pdf";
         PdfWriter writer = new PdfWriter(ruta);
@@ -64,5 +67,23 @@ public class Boleto {
         
         // Cerrando el documento    
         doc.close();
+        
+        abrirPDF(ruta);
+    }
+    
+    private static void abrirPDF(String nombreArchivo) throws IOException {
+        String sistemaOperativo = System.getProperty("os.name").toLowerCase();
+        
+        if (sistemaOperativo.contains("win")) {
+            // Si es Windows
+            Runtime.getRuntime().exec("rundll32 url.dll,FileProtocolHandler " + nombreArchivo);
+        } else if (sistemaOperativo.contains("nix") || sistemaOperativo.contains("nux") || sistemaOperativo.contains("mac")) {
+            // Si Linux o macOS
+            Desktop.getDesktop().open(new File(nombreArchivo));
+        } else {
+            // Si OS no compatible
+            throw new RuntimeException("OS no compatible");
+        }
+        
     }
 }

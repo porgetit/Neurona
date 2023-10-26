@@ -96,12 +96,9 @@ public class CtrlVuelo implements ActionListener {
         } else if (Botones.keySet().contains((JButton) event)) {            
             Botones.keySet().forEach(boton -> {
                 if (boton == (JButton) event) {
-                    Color color = boton.getBackground();
-                    if (color == Color.white) {                        
-                        new CtrlReservar(vuelo, Botones.get(boton)).init();
-                    } else if (color == Color.gray) {
-                        new CtrlConsultarReservas(vuelo).init(Botones.get(boton));
-                    }
+                    vista.dispose();
+                    new CtrlConsultarReservas(vuelo).init(Botones.get(boton));
+                    return;
                 }
             });
         } else {

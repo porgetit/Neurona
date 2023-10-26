@@ -7,6 +7,9 @@ package controladores;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import modelos.Asiento;
 import modelos.Vuelo;
 import vistas.ViewConsultarReservas;
@@ -16,8 +19,8 @@ import vistas.ViewConsultarReservas;
  * @author Kevin Esguerra Cardona
  */
 public class CtrlConsultarReservas implements ActionListener {
-    private ViewConsultarReservas vista;
-    private Vuelo vuelo;
+    private final ViewConsultarReservas vista;
+    private final Vuelo vuelo;
     private Asiento asiento;
     
     public CtrlConsultarReservas(Vuelo vuelo) { // Cuanto se presione el boton de consultas
@@ -44,13 +47,24 @@ public class CtrlConsultarReservas implements ActionListener {
             String criterio = vista.CheckAsiento.isSelected() ? "Asiento" : vista.CheckNUIP.isSelected() ? "NUIP" : "Nombre";
             buscar(entrada, criterio);
         } else if (event == vista.Volver) {
+            vista.dispose();
             new CtrlVuelo(vuelo).init();
         } else if (event == vista.Reservar) {
             vista.dispose();
-            new CtrlReservar(vuelo, Integer.parseInt(vista.Entrada.getText())).init();
+            new CtrlReservar(vuelo).init(Integer.parseInt(vista.Entrada.getText()) -1);
         } else if (event == vista.Modificar) {
             vista.dispose();
-            new CtrlModificar(vuelo, Integer.parseInt(vista.Entrada.getText())).init();
+            new CtrlModificar(vuelo, Integer.parseInt(vista.Entrada.getText()) -1).init();
+        } else if (event == vista.Cancelar) {
+            vista.dispose();
+            vuelo.getAsientos().get(Integer.parseInt(vista.Entrada.getText()) -1).liberar();
+            new CtrlVuelo(vuelo).init();
+        } else if (event == vista.GenerarBoleto) {
+            try {
+                vuelo.generarBoleto(Integer.parseInt(vista.Entrada.getText()) -1);
+            } catch (IOException ex) {
+                Logger.getLogger(CtrlConsultarReservas.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }
     
@@ -130,9 +144,9 @@ public class CtrlConsultarReservas implements ActionListener {
     
     private void responder(int Asiento) {
         vista.Entrada.setText(String.valueOf(Asiento));
-        
+        int index = Asiento -1;
         try {
-            asiento = vuelo.getAsientos().get(Asiento);
+            asiento = vuelo.getAsientos().get(index);
             
             if (asiento.esOcupado()) {
                 vista.Reservar.setEnabled(false);
