@@ -26,6 +26,7 @@ public class ViewConsultarReservas extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         ContenedorBuscar = new javax.swing.JPanel();
@@ -70,11 +71,14 @@ public class ViewConsultarReservas extends javax.swing.JFrame {
 
         Buscar.setText("Buscar");
 
+        buttonGroup1.add(CheckAsiento);
         CheckAsiento.setSelected(true);
         CheckAsiento.setText("Asiento");
 
+        buttonGroup1.add(CheckNUIP);
         CheckNUIP.setText("NUIP");
 
+        buttonGroup1.add(CheckNombre);
         CheckNombre.setText("Nombre");
 
         jLabel2.setText("Criterio de búsqueda:");
@@ -89,7 +93,7 @@ public class ViewConsultarReservas extends javax.swing.JFrame {
                     .addGroup(ContenedorBuscarLayout.createSequentialGroup()
                         .addComponent(Entrada, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Buscar, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE))
+                        .addComponent(Buscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ContenedorBuscarLayout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -306,8 +310,9 @@ public class ViewConsultarReservas extends javax.swing.JFrame {
     public javax.swing.JButton GenerarBoleto;
     public javax.swing.JButton Modificar;
     public javax.swing.JButton Reservar;
-    private javax.swing.JTextArea Respuesta;
+    public javax.swing.JTextArea Respuesta;
     public javax.swing.JButton Volver;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;

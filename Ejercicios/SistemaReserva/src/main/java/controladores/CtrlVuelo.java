@@ -5,10 +5,11 @@
 
 package controladores;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.LinkedHashMap;
+import java.util.Map;
 import javax.swing.JButton;
 import modelos.Vuelo;
 import vistas.ViewVuelo;
@@ -19,8 +20,8 @@ import vistas.ViewVuelo;
  */
 public class CtrlVuelo implements ActionListener {
     private ViewVuelo vista;
-    private Vuelo vuelo;
-    private final List<JButton> Botones;
+    private final Vuelo vuelo;
+    private final Map<JButton, Integer> Botones;
     
     public CtrlVuelo(Vuelo vuelo) {
         vista = new ViewVuelo();
@@ -29,84 +30,83 @@ public class CtrlVuelo implements ActionListener {
         
         vista.InfoReservas.addActionListener(this);
         
-        Botones = new ArrayList<>() {{
-            add(vista.Button1);
-            add(vista.Button2);
-            add(vista.Button3);
-            add(vista.Button4);
-            add(vista.Button5);
-            add(vista.Button6);
-            add(vista.Button7);
-            add(vista.Button8);
-            add(vista.Button9);
-            add(vista.Button10);
-            add(vista.Button11);
-            add(vista.Button12);
-            add(vista.Button13);
-            add(vista.Button14);
-            add(vista.Button15);
-            add(vista.Button16);
-            add(vista.Button17);
-            add(vista.Button18);
-            add(vista.Button19);
-            add(vista.Button20);
-            add(vista.Button21);
-            add(vista.Button22);
-            add(vista.Button23);
-            add(vista.Button24);
-            add(vista.Button25);
-            add(vista.Button26);
-            add(vista.Button27);
-            add(vista.Button28);
-            add(vista.Button29);
-            add(vista.Button30);
-            add(vista.Button31);
-            add(vista.Button32);
-            add(vista.Button33);
-            add(vista.Button34);
-            add(vista.Button35);
-            add(vista.Button36);
-            add(vista.Button37);
-            add(vista.Button38);
-            add(vista.Button39);
-            add(vista.Button40);
-            add(vista.Button41);
-            add(vista.Button42);
-            add(vista.Button43);
-            add(vista.Button44);
-            add(vista.Button45);
-            add(vista.Button46);
-            add(vista.Button47);
-            add(vista.Button48);
-            add(vista.Button49);
-            add(vista.Button50);
+        Botones = new LinkedHashMap<>() {{
+            put(vista.Button1, 0);
+            put(vista.Button2, 1);
+            put(vista.Button3, 2);
+            put(vista.Button4, 3);
+            put(vista.Button5, 4);
+            put(vista.Button6, 5);
+            put(vista.Button7, 6);
+            put(vista.Button8, 7);
+            put(vista.Button9, 8);
+            put(vista.Button10, 9);
+            put(vista.Button11, 10);
+            put(vista.Button12, 11);
+            put(vista.Button13, 12);
+            put(vista.Button14, 13);
+            put(vista.Button15, 14);
+            put(vista.Button16, 15);
+            put(vista.Button17, 16);
+            put(vista.Button18, 17);
+            put(vista.Button19, 18);
+            put(vista.Button20, 19);
+            put(vista.Button21, 20);
+            put(vista.Button22, 21);
+            put(vista.Button23, 22);
+            put(vista.Button24, 23);
+            put(vista.Button25, 24);
+            put(vista.Button26, 25);
+            put(vista.Button27, 26);
+            put(vista.Button28, 27);
+            put(vista.Button29, 28);
+            put(vista.Button30, 29);
+            put(vista.Button31, 30);
+            put(vista.Button32, 31);
+            put(vista.Button33, 32);
+            put(vista.Button34, 33);
+            put(vista.Button35, 34);
+            put(vista.Button36, 35);
+            put(vista.Button37, 36);
+            put(vista.Button38, 37);
+            put(vista.Button39, 38);
+            put(vista.Button40, 39);
+            put(vista.Button41, 40);
+            put(vista.Button42, 41);
+            put(vista.Button43, 42);
+            put(vista.Button44, 43);
+            put(vista.Button45, 44);
+            put(vista.Button46, 45);
+            put(vista.Button47, 46);
+            put(vista.Button48, 47);
+            put(vista.Button49, 48);
+            put(vista.Button50, 49);
         }};
         
-        Botones.forEach(boton -> boton.addActionListener(this));
+        Botones.keySet().forEach(boton -> boton.addActionListener(this));
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        vista.dispose();
         Object event = e.getSource();
         
         if (event == vista.InfoReservas) {
-            this.vista.dispose();
             new CtrlConsultarReservas(vuelo).init();
-        } else if (Botones.contains((JButton) event)) {
-            int id = -1;
-            
-            for (JButton boton : Botones) {
-                if ((JButton) event == boton) {
-                    id = Integer.parseInt(boton.getText()) - 1;
+        } else if (Botones.keySet().contains((JButton) event)) {            
+            Botones.keySet().forEach(boton -> {
+                if (boton == (JButton) event) {
+                    Color color = boton.getBackground();
+                    if (color == Color.white) {                        
+                        new CtrlReservar(vuelo, Botones.get(boton)).init();
+                    } else if (color == Color.gray) {
+                        new CtrlConsultarReservas(vuelo).init(Botones.get(boton));
+                    }
                 }
-            }
-            
-            if (id == -1) {
-                throw new RuntimeException("Error al seleccionar un boton");
-            }
-            
-            new CtrlReservar(vuelo, id);
-        }        
+            });
+        } else {
+            throw new RuntimeException("Error en vista Vuelo.");
+        }
     }
     
     
@@ -117,7 +117,9 @@ public class CtrlVuelo implements ActionListener {
         vista.setLocationRelativeTo(null);
         vista.setVisible(true);
         
-        upReporte();
+        upReporte();        
+        Botones.keySet().forEach(boton -> boton.setBackground(Color.white));
+        upEstadoBotones();
     }
     
     private void upReporte() {
@@ -130,4 +132,13 @@ public class CtrlVuelo implements ActionListener {
         
         vista.Reporte.setText(txt);
     }
+    
+    private void upEstadoBotones() {
+        Botones.keySet().forEach(boton -> {
+            if (vuelo.getAsientos().get(Botones.get(boton)).esOcupado()) {
+                boton.setBackground(Color.gray);
+            }
+        });
+    }
+        
 }

@@ -8,6 +8,7 @@ package modelos;
 import java.io.FileNotFoundException;
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 import java.util.logging.Level;
@@ -19,7 +20,7 @@ import java.util.logging.Logger;
  */
 public class Vuelo {
     private final LocalTime HoraSalida;
-    private LocalTime HoraLlegada;
+    private final LocalTime HoraLlegada;
     private final String IdVuelo;
     private final List<Asiento> Asientos;
 
@@ -52,6 +53,10 @@ public class Vuelo {
     
     public Asiento buscarAsiento(int IdAsiento) {
         return Asientos.get(IdAsiento);
+    }
+    
+    public List<Asiento> getAsientos() {
+        return Collections.unmodifiableList(Asientos);
     }
     
     public void ocuparAsiento(int IdAsiento, String NUIP, String Nombre) {
