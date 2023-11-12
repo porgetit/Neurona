@@ -26,7 +26,7 @@ public class Vuelo {
     private final List<Asiento> Asientos;
 
     public Vuelo() {
-        this.HoraSalida = LocalTime.of(new Random().nextInt(1,25), new Random().nextInt(1, 61));
+        this.HoraSalida = LocalTime.of(new Random().nextInt(0,24), new Random().nextInt(0, 60));
         this.HoraLlegada = HoraSalida.plusHours(new Random().nextInt(1,25));
         
         this.IdVuelo = "VT-" + (new Random()).nextInt(100, 1000);
