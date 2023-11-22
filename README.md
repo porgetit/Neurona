@@ -1,24 +1,92 @@
-# Repositorio de Código de Kevin Esguerra Cardona - Programación 4
+# Proyecto Neurona
 
-¡Bienvenidos al repositorio de código de Kevin Esguerra Cardona para el curso de Programación 4!
+El proyecto Neurona tiene como objetivo demostrar la utilidad de las neuronas de McCulloch-Pitts mediante la implementación de un modelo computacional que representa una neurona. Este modelo se ha construido en Java, siguiendo estrictamente el paradigma de programación orientada a objetos.
 
-En este repositorio, encontrarás el código fuente creado por mí durante el transcurso del curso de Programación 4. Aquí podrás explorar los diferentes proyectos, ejercicios y tareas que he desarrollado para mejorar mis habilidades de programación y comprensión de los conceptos cubiertos en el curso.
+## Clase Neuron
 
-## Estructura del Repositorio
+La clase `Neuron` es la piedra angular del proyecto. Representa una neurona de McCulloch-Pitts y se caracteriza por tener pesos y un umbral. Los pesos y las entradas se multiplican y suman, y si el resultado supera el umbral, la neurona se activa devolviendo 1, de lo contrario, devuelve 0.
 
-El repositorio está organizado de la siguiente manera:
+### Constructor
+```java
+public Neuron(List<Double> pesos, double umbral)
+```
 
-- **Ejercicios/**
-  - Aquí se encuentran los ejercicios prácticos que he resuelto a lo largo del curso, cada uno en su propio directorio numerado.
+### Método de Activación
+```java
+public int activar(List<Double> entradas)
+```
 
-## Navegación
+### Ejemplo de Uso
+```java
+Neuron compuerta = new Neuron(Arrays.asList(1.0, 1.0), 1.5);
+int resultado = compuerta.activar(Arrays.asList(0.0, 1.0));
+```
 
-Si deseas explorar un proyecto, ejercicio o tarea en particular, simplemente navega a través de los directorios correspondientes. Dentro de cada directorio, podrás encontrar el código fuente, archivos relacionados y, en algunos casos, un archivo README adicional con información específica sobre el proyecto, ejercicio o tarea.
+## Clase de Ejecución (Main)
 
-## Contacto
+La clase principal `Neurona` contiene una serie de pruebas que demuestran la capacidad del modelo construido para representar compuertas lógicas básicas y un comparador de magnitudes.
 
-Si tienes alguna pregunta sobre el contenido de este repositorio, sugerencias para mejoras o cualquier otro comentario, no dudes en contactarme a través de mi correo electrónico: kevin.esguerra@utp.edu.co.
+### Ejecutar Pruebas
+```java
+public static void main(String[] args)
+{
+    runTests();
+}
+```
 
-¡Espero que encuentres útiles los ejemplos de código y las soluciones contenidas en este repositorio!
+### Pruebas Implementadas
+1. **NOT**
+    ```java
+    private static void test1()
+    ```
 
-**Nota:** Este repositorio es creado con fines educativos y para documentar mi progreso en el curso de Programación 4. Por favor, respeta los derechos de autor y la integridad académica al utilizar el contenido de este repositorio.
+2. **OR**
+    ```java
+    private static void test2()
+    ```
+
+3. **AND**
+    ```java
+    private static void test3()
+    ```
+
+4. **XOR**
+    ```java
+    private static void test4()
+    ```
+
+5. **Comparador de magnitud**
+    ```java
+    private static void test5()
+    ```
+
+### Ejemplo de Uso (NOT)
+```java
+int resultado = Not(1);
+```
+
+### Ejemplo de Uso (OR)
+```java
+int resultado = Or(0, 1);
+```
+
+### Ejemplo de Uso (AND)
+```java
+int resultado = And(1, 1);
+```
+
+### Ejemplo de Uso (XOR)
+```java
+int resultado = Xor(0, 1);
+```
+
+### Ejemplo de Uso (Comparador de magnitud)
+```java
+ComparadorMagnitud(0, 1);
+```
+
+## Conclusiones
+
+El proyecto Neurona no solo demuestra la capacidad de las neuronas de McCulloch-Pitts para representar compuertas lógicas, sino que también proporciona una clase que permite a los programadores construir redes de estas neuronas con configuraciones personalizables.
+
+¡Experimenta y juega con las configuraciones para adaptarlas a tus necesidades de implementación!
