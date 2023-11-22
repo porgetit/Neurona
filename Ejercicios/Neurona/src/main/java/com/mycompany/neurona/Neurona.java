@@ -15,10 +15,6 @@ public class Neurona {
 
     public static void main(String[] args) {
         runTests();
-        ComparadorMagnitud(0, 0);
-        ComparadorMagnitud(0, 1);
-        ComparadorMagnitud(1, 0);
-        ComparadorMagnitud(1, 1);
     }
     
     private static void runTests() {
@@ -30,6 +26,8 @@ public class Neurona {
         test3();
         System.out.println("XOR");
         test4();
+        System.out.println("Comparador de magnitud");
+        test5();
     }
     
     private static void test1() { //NOT
@@ -53,10 +51,17 @@ public class Neurona {
     }
     
     private static void test4() { //XOR
-        System.out.println("0 0 --> " + Or(And(0, Not(0)), And(Not(0), 0)));
-        System.out.println("0 1 --> " + Or(And(0, Not(1)), And(Not(0), 1)));
-        System.out.println("1 0 --> " + Or(And(1, Not(0)), And(Not(1), 0)));
-        System.out.println("1 1 --> " + Or(And(1, Not(1)), And(Not(1), 1)));     
+        System.out.println("0 0 --> " + Xor(0, 0));
+        System.out.println("0 1 --> " + Xor(0, 1));
+        System.out.println("1 0 --> " + Xor(1, 0));
+        System.out.println("1 1 --> " + Xor(1, 1));
+    }
+    
+    private static void test5() { //ComparadorMagnitud
+        ComparadorMagnitud(0, 0);
+        ComparadorMagnitud(0, 1);
+        ComparadorMagnitud(1, 0);
+        ComparadorMagnitud(1, 1);
     }
     
     private static void ComparadorMagnitud(int a, int b) {
@@ -105,6 +110,10 @@ public class Neurona {
             add((double) a);
             add((double) b);
         }});
+    }
+    
+    private static int Xor(int a, int b) {
+        return Or(And(a, Not(b)),And(Not(a), b));
     }
 
 }
